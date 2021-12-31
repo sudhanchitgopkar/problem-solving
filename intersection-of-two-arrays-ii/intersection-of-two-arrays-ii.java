@@ -21,7 +21,7 @@ class Solution {
         sol = new int [intersection.size()];
         for (int i = 0; i < intersection.size(); i++) {
             sol[i] = intersection.get(i);
-        }
+        } //for
         
         return sol;
         
