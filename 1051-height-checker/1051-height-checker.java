@@ -7,7 +7,6 @@ class Solution {
             sorted[i] = heights[i];
         
         Arrays.sort(sorted);
-        
         for (int i = 0; i < heights.length; i++)
             if(sorted[i] != heights[i])
                 errors++;
