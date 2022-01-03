@@ -14,4 +14,4 @@ class Solution {
         
         return errors;
     } //heightChecker
-} //solution
+} //Solution
