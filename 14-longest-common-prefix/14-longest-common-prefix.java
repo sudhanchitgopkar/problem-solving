@@ -10,14 +10,13 @@ class Solution {
         
         while(curri < strs[0].length()) {
             for (int i = 0; i < strs.length; i++) {
-                if (curri >= strs[i].length()) {
+                if (curri >= strs[i].length()) 
                     return prefix;
-                } else {
+                else 
                     if(strs[i].charAt(curri) != strs[0].charAt(curri))
                         return prefix;
                     if(i == strs.length-1)
                         prefix+=strs[i].charAt(curri);
-                } //if
             } //for
             curri++;
         } //while
