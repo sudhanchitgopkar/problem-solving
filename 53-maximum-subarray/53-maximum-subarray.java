@@ -11,7 +11,7 @@ class Solution {
                 l = r++;
                 lmax = nums[l];
             } //if
-            
+    
             if (lmax > gmax)
                 gmax = lmax;
         } //while
@@ -20,6 +20,5 @@ class Solution {
             return lmax;
         else
             return gmax;
-        
     } //maxSubArr
 } //Solution
