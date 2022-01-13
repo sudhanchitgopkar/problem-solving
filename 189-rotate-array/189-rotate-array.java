@@ -6,8 +6,7 @@ class Solution {
             copy[i] = nums[i];
         
         //rotate
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) 
             nums[(i+k)%nums.length] = copy[i];
-        } //for
     } //rotate
 } //Solution
