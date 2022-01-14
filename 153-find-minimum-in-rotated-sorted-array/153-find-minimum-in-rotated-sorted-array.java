@@ -14,11 +14,11 @@ class Solution {
             m = (r+l)/2;
             if (m != 0 && nums[m] < nums[m-1])
                 return nums[m];
-            else if (nums[l] > nums[m]) {
+            else if (nums[l] > nums[m]) 
                 r = m-1;
-            } else if (nums[r] < nums[m]) {
+            else if (nums[r] < nums[m]) 
                 l = m+1;
-            } else
+            else
                 return nums[l];
         } //while
         
