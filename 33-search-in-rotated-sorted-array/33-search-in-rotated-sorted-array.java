@@ -1,7 +1,7 @@
 class Solution {
     public int search(int[] nums, int target) {
         if (nums.length == 1) if (nums[0] == target) return 0; else return -1;
-        int l = 0, r = nums.length-1, m = (l+r)/2;
+        int l = 0, r = nums.length-1, m;
         
         while (l <= r) {
             m = (l+r)/2;
