@@ -8,7 +8,7 @@ class Solution {
     
             if (nums[m] == target)
                 return m;
-            if (nums[l] <= nums[m] && nums[l] <= target && nums[m] >= target)
+            else if (nums[l] <= nums[m] && nums[l] <= target && nums[m] >= target)
                 r = m-1;
             else if (nums[l] <= nums[m])
                 l = m+1;
