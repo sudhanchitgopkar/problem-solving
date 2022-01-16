@@ -10,17 +10,15 @@ class Solution {
                 else
                     lMax = (r-l)/2;
                 l = r++;
-            } //if
-            else
+            } else 
                 r++;
-            if (lMax > gMax)
-                gMax = lMax;
+            
+            gMax = lMax > gMax ? lMax : gMax;
         } //while
         
         if (seats[l] == 1 && --r-l > gMax)
             return r-l;
         else
             return gMax;
-        
     } //maxDistToClosest
 } //Solution
