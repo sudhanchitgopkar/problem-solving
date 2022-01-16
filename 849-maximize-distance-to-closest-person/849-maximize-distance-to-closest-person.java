@@ -11,7 +11,7 @@ class Solution {
                     lMax = (r-l)/2;
                 l = r;
             } //if
-                r++;
+            r++;
             
             gMax = lMax > gMax ? lMax : gMax;
         } //while
