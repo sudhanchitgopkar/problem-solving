@@ -9,8 +9,8 @@ class Solution {
                     lMax = r-l;
                 else
                     lMax = (r-l)/2;
-                l = r++;
-            } else 
+                l = r;
+            } //if
                 r++;
             
             gMax = lMax > gMax ? lMax : gMax;
