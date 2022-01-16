@@ -3,7 +3,7 @@ class Solution {
         int l = 0, r = 0;
         int lMax = 0, gMax = 0;
         
-        while (r <= seats.length-1) {
+        while (r < seats.length) {
             if (seats[r] == 1) {
                 if (seats[l] == 0)
                     lMax = r-l;
