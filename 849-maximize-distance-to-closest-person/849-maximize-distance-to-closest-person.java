@@ -17,8 +17,8 @@ class Solution {
                 gMax = lMax;
         } //while
         
-        if (seats[l] == 1 && r-l > gMax)
-            return r-l-1;
+        if (seats[l] == 1 && --r-l > gMax)
+            return r-l;
         else
             return gMax;
         
