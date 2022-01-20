@@ -8,10 +8,9 @@ class Solution {
             if (++l == arr.length-1) return false;
         
         while (arr[r] < arr[r-1])
-            if(--r == 0) return false;
+            if (--r == 0) return false;
         
         if (l == r) return true;
         return false;
-        
     } //validMountain
 } //solution
