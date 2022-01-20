@@ -6,7 +6,7 @@ class Solution {
         
         while (r < s.length()) {
             if (h.containsKey(s.charAt(r))) {
-                l = Math.max(l, h.get(s.charAt(r))+1);
+                l = l < h.get(s.charAt(r)) + 1 ? h.get(s.charAt(r)) + 1 : l;
                 h.remove(s.charAt(r));
             } //if
             h.put(s.charAt(r),r);
