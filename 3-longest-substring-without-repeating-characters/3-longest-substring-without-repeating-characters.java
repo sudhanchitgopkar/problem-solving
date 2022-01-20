@@ -12,7 +12,6 @@ class Solution {
             h.put(s.charAt(r),r);
             
             lMax = ++r-l;
-            System.out.println(l + " " + r + "\t" + lMax);
             gMax = lMax > gMax ? lMax : gMax;
         } //while
         
