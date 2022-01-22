@@ -11,21 +11,18 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        if (head == null)
-            return false;
+        if (head == null) return false;
+        ListNode tort = head, hare = head.next;
         
-        ListNode tort = head;
-        ListNode hare = head.next;
-        
-        while (tort != null && hare != null) {
-            if (tort == hare)
-                return true;
-            else if (hare.next == null)
+        while (hare != tort) {
+            if (tort == null || hare == null || hare.next == null) {
                 return false;
-            tort = tort.next;
-            hare = hare.next.next;
+            } else {
+                tort = tort.next;
+                hare = hare.next.next;
+            } //else
         } //while
-        
-        return false;
+
+        return true;
     } //hasCycle
 } //Solution
