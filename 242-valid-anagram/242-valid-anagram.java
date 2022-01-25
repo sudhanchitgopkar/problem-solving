@@ -1,12 +1,22 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        int [] f = new int [26];    
-        for (int i = 0; i < t.length(); i++) 
-            f[t.charAt(i)-'a']++;       
-        for (int i = 0; i < s.length(); i++) 
-            f[s.charAt(i)-'a']--;        
-        for (int i = 0; i < f.length; i++) 
-            if (f[i] != 0) return false;        
+        HashMap <Character, Integer> freq = new HashMap <Character, Integer> ();
+        
+        for (int i = 0; i < s.length(); i++) {
+            if (freq.containsKey(s.charAt(i)))
+                freq.put(s.charAt(i), freq.get(s.charAt(i)) + 1);
+            else freq.put(s.charAt(i), 1);
+        } //for
+                  
+        for (int i = 0; i < t.length(); i++) {
+            if (freq.containsKey(t.charAt(i)))
+                freq.put(t.charAt(i), freq.get(t.charAt(i)) - 1);
+            else return false;
+        } //for
+                  
+        for (Integer i : freq.values())
+            if (i != 0) return false;
+                  
         return true;
     } //isAnagram
 } //Solution
