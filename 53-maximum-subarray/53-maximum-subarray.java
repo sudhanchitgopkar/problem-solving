@@ -1,12 +1,20 @@
 class Solution {
     public int maxSubArray(int[] nums) {
-        int lMax = nums[0], gMax = nums[0];
+        if (nums.length == 1) return nums[0];
         
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] > lMax + nums[i]) lMax = nums[i];
-            else lMax += nums[i];
+        int lMax = nums[0], gMax = nums[0];
+        int l = 0, r = 1;
+        
+        while (r < nums.length) {
+            if (lMax + nums[r] > nums[r]) {
+                lMax += nums[r++];
+            } else {
+                l = r;
+                lMax = nums[r++];
+            } //else
+            
             gMax = lMax > gMax ? lMax : gMax;
-        } //for
+        } //while
         
         return gMax;
     } //maxSubArr
