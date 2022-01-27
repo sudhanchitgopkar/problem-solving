@@ -10,7 +10,6 @@ class Solution {
                 h.remove(s.charAt(r));
             } //if
             h.put(s.charAt(r),r);
-            
             lMax = ++r-l;
             gMax = lMax > gMax ? lMax : gMax;
         } //while
