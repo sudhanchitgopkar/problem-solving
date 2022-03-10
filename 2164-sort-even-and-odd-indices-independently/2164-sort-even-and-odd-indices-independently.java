@@ -12,8 +12,7 @@ class Solution {
             if (i % 2 == 0) e[ei++] = nums[i];
             else o[oi++] = nums[i];
         
-        Arrays.sort(e); 
-        Arrays.sort(o);      
+        Arrays.sort(e); Arrays.sort(o);      
         oi = o.length-1; 
         ei = 0;
         
