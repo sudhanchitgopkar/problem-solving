@@ -11,13 +11,10 @@ class Solution {
         ArrayList<Integer> temp;
         for (int i = 3; i <= numRows; i++) {
             temp = new ArrayList<Integer>();
-            int l = 0, r = 1, p = 1;
+            int l = 0, r = 1;
             temp.add(1);
             while (r < i-1) {
-               temp.add(sol.get(i-2).get(l) + sol.get(i-2).get(r));
-                l++;
-                r++;
-                p++;
+               temp.add(sol.get(i-2).get(l++) + sol.get(i-2).get(r++));
             } //while
             temp.add(1);
             sol.add(temp);
