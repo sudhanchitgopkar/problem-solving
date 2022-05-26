@@ -1,30 +1,31 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         HashMap <Integer, Integer> freq = new HashMap <Integer, Integer> ();
-        List<Integer> [] buckets = new List[nums.length + 1];
+        ArrayList<Integer> [] buckets = new ArrayList [nums.length+1];
         int [] sol = new int [k];
         
-        //make frequency table
+        //populate frequency map
         for (int n : nums)
             freq.put(n,freq.getOrDefault(n,0)+1);
         
-        //put freq in buckets
-        for (int key : freq.keySet()) {
-            int val = freq.get(key);
-            if (buckets[val] == null)
-               buckets[val] = new ArrayList<Integer>();
-            buckets[val].add(key);
+        //sorted based on freq
+        for (int val: freq.keySet()) {
+            int frequency = freq.get(val);
+            if (buckets[frequency] == null) 
+                buckets[frequency] = new ArrayList <Integer>();
+            buckets[frequency].add(val);
         } //for
         
-        int bucketPtr = buckets.length - 1;
-        int solPtr = 0;
-        while (solPtr < k) {
-            while (buckets[bucketPtr] == null) bucketPtr--;
-            for (int n : buckets[bucketPtr])
-                sol[solPtr++] = n;
-            bucketPtr--;
+        //get k most frequent
+        int sPtr = 0, bPtr = buckets.length-1;
+        
+        while (sPtr < k) {
+            if (buckets[bPtr] != null)
+                for (int b : buckets[bPtr])
+                    sol[sPtr++] = b;
+            bPtr--;
         } //while
-    
+        
         return sol;
     } //topK
 } //Sol
