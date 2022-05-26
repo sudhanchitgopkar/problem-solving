@@ -1,7 +1,6 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        
-        HashSet<Integer> h = new HashSet<Integer> ();
+        HashSet <Integer> h = new HashSet <Integer> ();
         
         for (int n : nums) {
             if (h.contains(n)) return true;
@@ -11,3 +10,8 @@ class Solution {
         return false;
     } //containsDup
 } //Sol
+
+/*
+Time: O(n)
+Space: O(n)
+*/
