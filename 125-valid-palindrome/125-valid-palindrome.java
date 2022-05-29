@@ -1,14 +1,20 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        if (s.equals(" "))
-            return true;
+        s = s.toLowerCase().replaceAll("[^A-Za-z0-9]","");
+        int l = 0, r = s.length()-1;
         
-        s = s.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
+        while (l < r)
+            if (s.charAt(l++) != s.charAt(r--)) return false;
         
-        for (int i = 0; i < s.length()/2; i++) 
-            if (s.charAt(i) != s.charAt(s.length() - 1 - i))
-                return false;
         return true;
     } //isPalindrome
-    
 } //Solution
+
+/*
+raceacar
+r=r 0
+a=a 1
+c=c 2
+e=a 3
+
+*/
