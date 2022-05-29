@@ -1,14 +1,14 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        int l = 0, r = numbers.length-1;
+        int nlen = numbers.length;
+        int l = 0, r = nlen-1;
         
-        while (r > l) {
-            if (numbers[l] + numbers[r] == target)
-                return new int [] {l+1,r+1};
-            else if (numbers[l] + numbers[r] < target)
-                l++;
-            else
-                r--;
+       
+        
+        while (l < r) {
+            if (numbers[l] + numbers[r] > target) r--;
+            else if (numbers[l] + numbers[r] < target) l++;
+            else return new int [] {l+1, r+1};
         } //while
         
         return new int [] {};
