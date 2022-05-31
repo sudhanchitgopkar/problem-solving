@@ -1,33 +1,22 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        HashMap <String, ArrayList<String>> ana = new HashMap <String, ArrayList<String>> ();
+        HashMap <String, List<String>> h = new HashMap <String, List<String>> ();
+        List<List<String>> sol;
         
         for (String s : strs) {
-            char [] ca = s.toCharArray();
-            Arrays.sort(ca);
-            String key = String.valueOf(ca);
+            char [] c = s.toCharArray();
+            Arrays.sort(c);
+            String key = String.valueOf(c);
             
-            if (ana.containsKey(key)) {
-                ana.get(key).add(s);
+            if (h.containsKey(key)) {
+                h.get(key).add(s);
             } else {
-                ana.put(key, new ArrayList<String>());
-                ana.get(key).add(s);
-            } //if
+                h.put(key, new ArrayList<String>());
+                h.get(key).add(s);
+            }
         } //for
-        
-        return new ArrayList<List<String>> (ana.values());
+       
+        sol = new ArrayList<List<String>> (h.values());
+        return sol;
     } //groupAnagrams
 } //Sol
-
-/*
-1. convert each str -> sorted char representation X
-2. group all sets of anagrams X
-3. return our set of sets
-*/
-
-/*
-eat -> a,e,t -> aet
-tea -> a,e,t -> aet
-
-bat -> a,b,t -> abt
-*/
