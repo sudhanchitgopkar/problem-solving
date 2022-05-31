@@ -1,27 +1,33 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        
         HashMap <Integer, Integer> freq = new HashMap <Integer, Integer> ();
-        ArrayList<Integer> [] buckets = new ArrayList [nums.length+1];
+        List<Integer> [] freqArr = new List [nums.length+1];
         int [] sol = new int [k];
+        int solptr = 0;
         
-        for (int n : nums)
-            freq.put(n,freq.getOrDefault(n,0)+1);
-        
-        for (int val: freq.keySet()) {
-            int frequency = freq.get(val);
-            if (buckets[frequency] == null) 
-                buckets[frequency] = new ArrayList <Integer>();
-            buckets[frequency].add(val);
+        for (int n : nums) {
+            if (freq.containsKey(n))
+                freq.put(n,freq.get(n) + 1);
+            else
+                freq.put(n,1);
         } //for
         
-        int sPtr = 0, bPtr = buckets.length-1;
-        while (sPtr < k) {
-            if (buckets[bPtr] != null)
-                for (int b : buckets[bPtr])
-                    sol[sPtr++] = b;
-            bPtr--;
-        } //while
+        for (int key : freq.keySet()) {
+            if (freqArr[freq.get(key)] == null) {
+                freqArr[freq.get(key)] = new ArrayList<Integer>();
+                freqArr[freq.get(key)].add(key);
+            } else {
+                freqArr[freq.get(key)].add(key);
+            }
+        } //for
+        
+        for (int i = freqArr.length-1; i >= 0 && solptr < k; i--) {
+            if (freqArr[i] != null) {
+                for (int j = 0; j < freqArr[i].size(); j++) {
+                    sol[solptr++] = freqArr[i].get(j);
+                } //for
+            } //if
+        } //for
         
         return sol;
     } //topK
