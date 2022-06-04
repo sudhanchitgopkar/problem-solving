@@ -6,7 +6,6 @@ class Solution {
         int [] window = new int [26];
         int l = 0;
         
-        //populate s1freq
         for (int i = 0; i < s1.length(); i++)
             s1freq[s1.charAt(i) - 'a']++;
         
