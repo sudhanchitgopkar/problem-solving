@@ -9,7 +9,10 @@ class Solution {
         } //for
         
         for (double d : tm.values()) {
-            if (d > prev) { numFleets++; prev = d;}
+            if (d > prev) { 
+                numFleets++; 
+                prev = d;
+            } //if
         } //for
    
         return numFleets;
