@@ -9,10 +9,10 @@ class Solution {
                 while (l <= seen.get(nums[r])) 
                     score -= nums[l++];
             
-                score += nums[r];
-                seen.put(nums[r],r);
+            score += nums[r];
+            seen.put(nums[r],r);
             
-                if (score > max) max = score;
+            if (score > max) max = score;
         } //for
         
         return max;
