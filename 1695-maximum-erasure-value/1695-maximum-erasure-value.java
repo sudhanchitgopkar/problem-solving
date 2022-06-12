@@ -5,17 +5,14 @@ class Solution {
         int max = 0, score = 0;
         
         for (int r = 0; r < nums.length; r++) {
-            if (!seen.containsKey(nums[r]) || seen.get(nums[r]) < l) {
-                seen.put(nums[r],r);
-                score += nums[r];
-            } else {
+            if (seen.containsKey(nums[r]) && seen.get(nums[r]) >= l) 
                 while (l <= seen.get(nums[r])) 
                     score -= nums[l++];
+            
                 score += nums[r];
                 seen.put(nums[r],r);
-            } //if
             
-            if (score > max) max = score;
+                if (score > max) max = score;
         } //for
         
         return max;
