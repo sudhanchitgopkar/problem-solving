@@ -13,7 +13,6 @@ class Solution {
             } else l = m + 1;
         } //while
         
-        System.out.println(rowToSearch);
         if (rowToSearch == -1) return false;
     
         l = 0; 
