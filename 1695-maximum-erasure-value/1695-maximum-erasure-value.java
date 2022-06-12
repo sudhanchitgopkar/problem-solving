@@ -9,9 +9,8 @@ class Solution {
                 seen.put(nums[r],r);
                 score += nums[r];
             } else {
-                while (l <= seen.get(nums[r])) {
+                while (l <= seen.get(nums[r])) 
                     score -= nums[l++];
-                }
                 score += nums[r];
                 seen.put(nums[r],r);
             } //if
