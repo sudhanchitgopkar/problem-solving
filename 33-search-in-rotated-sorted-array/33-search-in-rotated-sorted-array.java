@@ -1,23 +1,31 @@
 class Solution {
     public int search(int[] nums, int target) {
-        if (nums.length == 1) if (nums[0] == target) return 0; else return -1;
-        int l = 0, r = nums.length-1, m = (l+r)/2;
+        int l = 0, r = nums.length-1;
         
         while (l <= r) {
-            m = (l+r)/2;
-    
-            if (nums[m] == target)
+            int m = l + ((r-l)/2);
+            System.out.println(nums[m]);
+            if (nums[m] == target) {
                 return m;
-            if (nums[l] <= nums[m] && nums[l] <= target && nums[m] >= target)
-                r = m-1;
-            else if (nums[l] <= nums[m])
-                l = m+1;
-            else if (nums[m] <= nums[r] && nums[m] <= target && nums[r] >= target)
-                l = m+1;
-            else
-                r = m-1;
+            } 
+            //l-sorted
+            if (nums[m] >= nums[0]) {
+                if (nums[m] > target) {
+                    if (nums[0] > target) l = m + 1;
+                    else r = m - 1;
+                } else {
+                    l = m + 1;
+                } //if
+            } else {
+                if (nums[m] > target) {
+                    r = m - 1;
+                } else {
+                    if (nums[nums.length-1] >= target) l = m + 1;
+                    else r = m - 1;
+                } //if
+            } //else
         } //while
-        
+       
         return -1;
     } //search
 } //solution
