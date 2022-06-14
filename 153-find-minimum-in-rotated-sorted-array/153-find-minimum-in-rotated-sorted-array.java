@@ -7,11 +7,10 @@ class Solution {
             int m = l + ((r - l)/2);
             if (nums[m] < min) min = nums[m];
             
-            if (nums[m] >= nums[0]) {
+            if (nums[m] >= nums[0])
                 l = m + 1;
-            } else {
+            else
                 r = m - 1;
-            } //if
         } //while
        
         return min;
