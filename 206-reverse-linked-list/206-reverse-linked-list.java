@@ -14,16 +14,14 @@ class Solution {
         
         ListNode prev = null;
         ListNode curr = head;
-        ListNode next = curr.next;
         
         while (curr != null) {
+            ListNode next = curr.next;
             curr.next = prev;
             prev = curr;
-            if (next == null) break;
             curr = next;
-            next = next.next;
         } //while
              
-        return curr;
+        return prev;
     } //revList
 } //Solution
