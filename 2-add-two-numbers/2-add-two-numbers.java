@@ -15,26 +15,23 @@ class Solution {
         ListNode head = new ListNode(), curr = head;
         int carry = 0;
         
-        while (l1ptr != null && l2ptr != null) {
-            curr.next = new ListNode((l1ptr.val + l2ptr.val + carry) % 10);
-            carry = (l1ptr.val + l2ptr.val + carry) / 10;
+        while (l1ptr != null || l2ptr != null) {
+            int sum = 0;
+            
+            if (l1ptr != null) {
+                sum += l1ptr.val;
+                l1ptr = l1ptr.next;
+            } //if
+            
+            if (l2ptr != null) {
+                sum += l2ptr.val;
+                l2ptr = l2ptr.next;
+            } //if
+            
+            curr.next = new ListNode((sum + carry) % 10);
+            carry = (sum + carry) / 10;
+            
             curr = curr.next;
-            l1ptr = l1ptr.next;
-            l2ptr = l2ptr.next;
-        } //while
-        
-        while (l1ptr == null && l2ptr != null) {
-            curr.next = new ListNode ((l2ptr.val + carry) % 10);
-            carry = (l2ptr.val + carry) / 10;
-            curr = curr.next;
-            l2ptr = l2ptr.next;
-        } //while
-        
-        while (l1ptr != null && l2ptr == null) {
-            curr.next = new ListNode ((l1ptr.val + carry) % 10);
-            carry = (l1ptr.val + carry) / 10;
-            curr = curr.next;
-            l1ptr = l1ptr.next;
         } //while
         
         if (carry == 1) curr.next = new ListNode(1);
