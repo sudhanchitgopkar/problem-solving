@@ -4,14 +4,12 @@ class Solution {
         
         for (int i = 0; i < h.length-1; i++) {
             int d = h[i+1] - h[i];
-            if (d > 0) {
+            if (d > 0) 
             minHeap.add(d);
-            if (minHeap.size() > ladders) {
+            if (minHeap.size() > ladders)
                 bricks -= minHeap.poll();
-            } //if
             if (bricks < 0) 
                 return i;
-            }
         } //for
         
         return h.length-1;
