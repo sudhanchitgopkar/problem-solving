@@ -13,12 +13,14 @@ class Solution {
         if (lists.length == 0) return null;
         ListNode head = new ListNode(), curr = head;
         
-        PriorityQueue<ListNode> pq = new PriorityQueue<ListNode>(lists.length ,(a,b) -> a.val-b.val);
+        PriorityQueue<ListNode> pq = new PriorityQueue<ListNode>
+            (lists.length ,(a,b) -> a.val-b.val);
 
         
         for (ListNode l : lists) {
-            if (l != null)
+            if (l != null) {
                 pq.add(l);
+            } //if
         } //for
         
         while (!pq.isEmpty()) {
