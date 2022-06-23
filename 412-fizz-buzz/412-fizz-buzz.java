@@ -1,20 +1,14 @@
 class Solution {
     public List<String> fizzBuzz(int n) {
-        List <String> sol = new ArrayList <String> ();
-        int i = 1;
+        LinkedList <String> l = new LinkedList <String> ();
         
-        while (i <= n) {
-            if (i % 3 == 0 && i % 5 == 0)
-                sol.add("FizzBuzz");
-            else if (i % 3 == 0)
-                sol.add("Fizz");
-            else if (i % 5 == 0)
-                sol.add("Buzz");
-            else
-                sol.add(Integer.toString(i));
-            i++;
-        } //while
+        for (Integer i = 1; i <= n; i++) {
+            if (i % 3 == 0 && i % 5 == 0) l.add("FizzBuzz");
+            else if (i % 3 == 0) l.add("Fizz");
+            else if (i % 5 == 0) l.add("Buzz");
+            else l.add(i.toString());
+        } //for
         
-        return sol;
+        return l;
     } //fizzbuzz
 } //solution
