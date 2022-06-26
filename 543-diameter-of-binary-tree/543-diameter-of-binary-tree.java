@@ -25,7 +25,7 @@ class Solution {
         if (root == null) return 0;
         int l = recurse(root.left);
         int r = recurse(root.right);
-        max = Math.max(max, l + r);
+        if (l + r > max) max = l + r;
         return 1 + Math.max(l,r);
     } //recurse
 } //Sol
