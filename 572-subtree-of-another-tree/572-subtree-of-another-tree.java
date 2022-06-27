@@ -25,9 +25,8 @@ class Solution {
     private boolean checkSame (TreeNode root, TreeNode subRoot) {
         if (root == null || subRoot == null) return (root == subRoot);
         
-        if (root.val == subRoot.val) {
+        if (root.val == subRoot.val) 
             return checkSame(root.left,subRoot.left) && checkSame(root.right,subRoot.right);
-        }
         
         return false;
     } //checkSame
