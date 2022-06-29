@@ -17,7 +17,7 @@ class Solution {
     int sol = 0;
     
     public int goodNodes(TreeNode root) {
-        recurse(root,Integer.MIN_VALUE);
+        recurse(root,root.val);
         return sol;
     } //goodNodes
     
