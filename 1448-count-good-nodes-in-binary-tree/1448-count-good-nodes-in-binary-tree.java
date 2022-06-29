@@ -22,15 +22,15 @@ class Solution {
     } //goodNodes
     
     private int recurse (TreeNode root, int max) {
-        if (root == null) return max;
+        if (root == null) return max; //base
         
-        if (root.val >= max) {
+        if (root.val >= max) { //check good
             max = root.val;
             sol++;
         } //if
         
-        recurse(root.left,max);
-        recurse(root.right,max);
+        recurse(root.left,max); //recurse left
+        recurse(root.right,max); //recurse right
         
         return max;
     } //recurse
