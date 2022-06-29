@@ -22,9 +22,7 @@ class Solution {
     } //goodNodes
     
     private int recurse (TreeNode root, int max) {
-        if (root == null) {
-            return max;
-        } //if
+        if (root == null) return max;
         
         if (root.val >= max) {
             max = root.val;
