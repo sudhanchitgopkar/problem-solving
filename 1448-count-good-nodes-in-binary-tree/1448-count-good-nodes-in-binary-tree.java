@@ -21,17 +21,17 @@ class Solution {
         return sol;
     } //goodNodes
     
-    private int recurse (TreeNode root, int maxSoFar) {
-        if (root == null) return maxSoFar;
+    private int recurse (TreeNode root, int max) {
+        if (root == null) return max;
         
-        if (root.val >= maxSoFar) {
-            maxSoFar = root.val;
+        if (root.val >= max) {
+            max = root.val;
             sol++;
         } //if
         
-        recurse(root.left,maxSoFar);
-        recurse(root.right,maxSoFar);
+        recurse(root.left,max);
+        recurse(root.right,max);
         
-        return maxSoFar;
+        return max;
     } //recurse
 } //Sol
