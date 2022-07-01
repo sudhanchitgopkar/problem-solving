@@ -20,13 +20,13 @@ class Solution {
         return sol;
     } //kthSmallest
     
-    private TreeNode recurse(TreeNode root, int k) {
-        if (root == null) return root;
+    private void recurse(TreeNode root, int k) {
+        if (root == null) return;
         
         recurse(root.left,k);
         if (++count == k) sol = root.val; 
         recurse(root.right,k);
         
-        return root;
+        return;
     } //recurse
 } //Sol
