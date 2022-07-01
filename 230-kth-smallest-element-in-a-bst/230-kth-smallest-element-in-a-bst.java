@@ -23,6 +23,7 @@ class Solution {
     private void recurse(TreeNode root, int k) {
         if (root == null) return;
         
+        //inorder traversal
         recurse(root.left,k);
         if (++count == k) sol = root.val; 
         recurse(root.right,k);
