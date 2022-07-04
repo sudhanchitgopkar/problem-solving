@@ -10,27 +10,35 @@
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null) return head;
+        if (head == null) return head; //edge
         
-        ListNode run = head, walk = head, prev = head, count = head;
+        //init vars
+        ListNode run = head, walk = head, count = head;
         int len = 0;
        
-        while (count != null) {count = count.next; len++;}
+        //calc len
+        while (count != null) {
+            count = count.next;
+            len++;
+        } //while
+        
+        //solve k > len
         k = k % len;
-        if (k == 0) return head;
+        if (k == 0) return head; //edge
 
-        for (int i = 0; i < k; i++) run = run.next;
+        for (int i = 0; i < k; i++) {
+            run = run.next;
+        } //for
         
         while (run.next != null) {
             run = run.next;
-            prev = walk;
             walk = walk.next;
         } //while
         
-        prev = walk.next;
+        ListNode sol = walk.next;
         walk.next = null;
         run.next = head;
         
-        return prev;
+        return sol;
     } //rotateRight
 } //Sol
