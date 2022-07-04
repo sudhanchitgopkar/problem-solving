@@ -12,28 +12,23 @@ class Solution {
     public ListNode rotateRight(ListNode head, int k) {
         if (head == null) return head; //edge
         
-        //init vars
         ListNode run = head, walk = head, count = head;
         int len = 0;
        
-        //calc len
-        for (len = 0; count != null; len++) count = count.next;
-        
+        for (len = 0; count != null; len++) count = count.next;      
 
-        //solve k > len
         k = k % len;
-        if (k == 0) return head; //edge
+        if (k == 0) return head;
 
-        for (int i = 0; i < k; i++) {
-            run = run.next;
-        } //for
-        
+        for (int i = 0; i < k; i++) run = run.next;
+                    
         while (run.next != null) {
             run = run.next;
             walk = walk.next;
         } //while
         
         ListNode sol = walk.next;
+        
         walk.next = null;
         run.next = head;
         
