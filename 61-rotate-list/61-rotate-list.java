@@ -17,11 +17,9 @@ class Solution {
         int len = 0;
        
         //calc len
-        while (count != null) {
-            count = count.next;
-            len++;
-        } //while
+        for (len = 0; count != null; len++) count = count.next;
         
+
         //solve k > len
         k = k % len;
         if (k == 0) return head; //edge
