@@ -7,6 +7,6 @@ class Solution {
             if (vals.size() > k) vals.poll();
         } //for
         
-        return vals.poll();
+        return vals.peek();
     } //findKthLargest
 } //Sol
