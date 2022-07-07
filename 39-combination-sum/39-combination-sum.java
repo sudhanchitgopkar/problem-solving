@@ -17,7 +17,6 @@ class Solution {
         
         subset.add(candidates[curr]);
         backtrack(candidates,subset,curr,target,sum+candidates[curr]);
-        //backtrack(candidates,subset,curr+1,target,sum+candidates[curr]);
         
         subset.remove(subset.size()-1);
         backtrack(candidates,subset,curr+1,target,sum);
