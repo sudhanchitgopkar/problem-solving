@@ -28,11 +28,11 @@ class Solution {
             oldToNew.put(node,copy);
         } else {
             return oldToNew.get(node);
-        }
+        } //if
         
         for (Node neighbor : node.neighbors) {
             oldToNew.get(node).neighbors.add(cloneGraph(neighbor));
-        } //
+        } //for
         
         return oldToNew.get(node);
     } //cloneGraph
