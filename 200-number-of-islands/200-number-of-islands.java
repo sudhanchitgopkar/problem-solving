@@ -19,15 +19,15 @@ class Solution {
         if (i-1 >= 0 && grid[i-1][j] == '1') {
             grid[i-1][j] = 0;
             dfs(grid,i-1,j);
-        }
+        } //if
         if (i + 1 < grid.length && grid[i+1][j] == '1') {
             grid[i+1][j] = 0;
             dfs(grid,i+1,j);
-        }
+        } //if
         if (j-1 >= 0 && grid[i][j-1] == '1') {
             grid[i][j-1] = 0;
             dfs(grid,i,j-1);
-        }
+        } //if
         if (j + 1 < grid[0].length && grid[i][j+1] == '1') {
             grid[i][j+1] = 0;
             dfs(grid,i,j+1);
