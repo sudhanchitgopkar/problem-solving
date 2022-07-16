@@ -3,11 +3,13 @@ class Solution {
         Queue <int []> rotting = new LinkedList<int []> ();
         int min = 0;
         
+        //initial add
         for (int i = 0; i < grid.length; i++) 
             for (int j = 0; j < grid[0].length; j++) 
                 if (grid[i][j] == 2) 
                     rotting.offer(new int [] {i,j});
        
+        //bfs
         while (!rotting.isEmpty()) {
             min++;
             int breadth = rotting.size();
@@ -33,6 +35,7 @@ class Solution {
             } //for
         } //while
         
+        //check for any fresh
         for (int i = 0; i < grid.length; i++)
             for (int j = 0; j < grid[0].length; j++)
                 if (grid[i][j] == 1) return -1;
