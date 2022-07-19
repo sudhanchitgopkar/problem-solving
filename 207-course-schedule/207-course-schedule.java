@@ -26,12 +26,11 @@ class Solution {
             System.out.println(course);
             topsort[topsortindex++] = course;
             
-            if (dependencyMap.containsKey(course))  {
-                for (int nextCourse : dependencyMap.get(course)) {
-                    dependencies[nextCourse]--;
-                    if (dependencies[nextCourse] == 0) noDependencies.add(nextCourse);
-                } //for    
-            } //if
+            if (!dependencyMap.containsKey(course)) continue;
+            for (int nextCourse : dependencyMap.get(course)) {
+                dependencies[nextCourse]--;
+                if (dependencies[nextCourse] == 0) noDependencies.add(nextCourse);
+            } //for    
         }  //while
         
         return topsortindex == numCourses;
