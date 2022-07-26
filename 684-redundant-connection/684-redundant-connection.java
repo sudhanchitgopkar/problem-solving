@@ -15,11 +15,6 @@ class Solution {
         return new int [] {}; //should be unreachable
     } //findRedundant
     
-    private void union(int parent, int node) {
-        if (parents[parent] != parent) union(parents[parent],node);
-        parents[node] = parent;
-    } //union
-    
     private int findParent(int node) {
         if (parents[node] != node) return findParent(parents[node]);
         return node;
