@@ -1,5 +1,17 @@
 class Solution {
     public boolean canJump(int[] nums) {
+        int goal = nums.length-1;
+        
+        for (int i = goal; i >= 0; i--) {
+            if (i + nums[i] >= goal) goal = i;
+        } //for
+        
+        return goal == 0;
+    } //canJump
+} //Solution
+
+/*
+public boolean canJump(int[] nums) {
         boolean [] seen = new boolean [nums.length]; 
         for (int i = 0; i < seen.length; i++) seen[i] = true; 
         return jump(nums,0,seen);
@@ -19,4 +31,4 @@ class Solution {
         seen[curr] = false;
         return false;
     } //jump
-} //Solution
+    */
