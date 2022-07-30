@@ -1,6 +1,4 @@
 class Solution {
-
-    // 11. Container With Most Water
     int right;
     public int maxArea(int[] height) {
         int left = 0;
@@ -49,7 +47,6 @@ class Solution {
                 steps++;
             } // while
         } // if
-        // if it didn't find a high enough wall, don't change the wall
         return current;
     } // nextWall()
 } // Problems
