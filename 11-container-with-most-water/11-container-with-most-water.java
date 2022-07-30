@@ -1,8 +1,7 @@
 class Solution {
-    int right;
     public int maxArea(int[] height) {
         int left = 0;
-        right = height.length - 1;
+        int right = height.length - 1;
         int max = 0;
         int newTank;
         int nextWall;
@@ -33,7 +32,7 @@ class Solution {
     int nextWall(int[] height, int current, boolean left) {
         int steps = 1;
         if (left) {
-            while (current + steps < right) {
+            while (current + steps < height.length) {
                 if (height[current + steps] >= height[current]) {
                     return current + steps;
                 } // if
