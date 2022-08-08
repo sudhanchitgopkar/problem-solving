@@ -13,21 +13,19 @@
  *     }
  * }
  */
-class Solution {
-    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        if (subRoot == null) return true;
-        if (root == null) return false;
-        
-        if (root.val == subRoot.val && checkSame(root,subRoot)) return true;
-        else return isSubtree(root.left,subRoot) || isSubtree(root.right,subRoot);
-    } //isSubtree
+public class Solution {
+    public boolean isSubtree(TreeNode s, TreeNode t) {
+        if (s == null) return false;
+        if (isSame(s, t)) return true;
+        return isSubtree(s.left, t) || isSubtree(s.right, t);
+    }
     
-    private boolean checkSame (TreeNode root, TreeNode subRoot) {
-        if (root == null || subRoot == null) return (root == subRoot);
+    private boolean isSame(TreeNode s, TreeNode t) {
+        if (s == null && t == null) return true;
+        if (s == null || t == null) return false;
         
-        if (root.val == subRoot.val) 
-            return checkSame(root.left,subRoot.left) && checkSame(root.right,subRoot.right);
+        if (s.val != t.val) return false;
         
-        return false;
-    } //checkSame
-} //Sol
+        return isSame(s.left, t.left) && isSame(s.right, t.right);
+    }
+}
