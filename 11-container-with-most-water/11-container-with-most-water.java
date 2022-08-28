@@ -1,51 +1,15 @@
 class Solution {
-    public int maxArea(int[] height) {
-        int left = 0;
-        int right = height.length - 1;
-        int max = 0;
-        int newTank;
-        int nextWall;
-
-        while (left < right) {
-            newTank = Math.min(height[left], height[right]) * (right - left);
-            max = Math.max(max, newTank);
-            
-            if (height[left] < height[right]) {
-                nextWall = nextWall(height, left, true);
-                if (nextWall == left) {
-                    nextWall = nextWall(height, right, false);
-                    if (nextWall == right) return max;
-                } // if
-                left = nextWall;
-            } else {
-                nextWall = nextWall(height, right, false);
-                if (nextWall == right) {
-                    nextWall = nextWall(height, left, true);
-                    if (nextWall == left) return max;
-                } // if
-                right = nextWall;
-            } // else
-        } // while
+    public int maxArea(int[] h) {
+        int max = 0, curr = 0;
+        int l = 0, r = h.length-1;
+        
+        while (l < r) {
+            curr =  Math.min(h[l],h[r]) * (r-l);
+            max = max > curr ? max : curr;        
+            if (h[l] < h[r]) l++;
+            else r--;
+        } //while
+       
         return max;
-    } // maxArea()
-
-    int nextWall(int[] height, int current, boolean left) {
-        int steps = 1;
-        if (left) {
-            while (current + steps < height.length) {
-                if (height[current + steps] >= height[current]) {
-                    return current + steps;
-                } // if
-                steps++;
-            } // while
-        } else { // right
-            while (current - steps >= 0) {
-                if (height[current - steps] >= height[current]) {
-                    return current - steps;
-                } // if
-                steps++;
-            } // while
-        } // if
-        return current;
-    } // nextWall()
+    } // maxArea
 } // Problems
