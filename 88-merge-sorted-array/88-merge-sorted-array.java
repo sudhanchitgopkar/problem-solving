@@ -1,19 +1,11 @@
 class Solution {
-    public void merge(int[] nums1, int m, int[] nums2, int n) {   
-        --m;
-        --n;
+    public void merge(int[] n1, int k1, int[] n2, int k2) {   
+        int n1ptr = k1-1, n2ptr = k2-1, i = n1.length-1;
         
-        for (int i = nums1.length - 1; i >= 0; i--) {
-            if (n < 0) 
-                return;
-            else if (m < 0) 
-                nums1[i] = nums2[n--];
-            else if (nums1[m] > nums2[n])
-                nums1[i] = nums1[m--];
-            else
-                nums1[i] = nums2[n--];
-        } //for
-            
-        return;
+        while (n1ptr >= 0 && n2ptr >= 0) 
+            if (n1[n1ptr] >= n2[n2ptr]) n1[i--] = n1[n1ptr--];
+            else n1[i--] = n2[n2ptr--];
+        
+        while (n2ptr >= 0) n1[i--] = n2[n2ptr--];
     } //merge
 } //Solution
