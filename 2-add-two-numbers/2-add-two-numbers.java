@@ -27,7 +27,7 @@ class Solution {
                 l2ptr = l2ptr.next;
             } //if
             
-            curr.next = new ListNode((sum + carry) % 10);
+            curr.next = new ListNode ((sum + carry) % 10);
             carry = (sum + carry) / 10;
             
             curr = curr.next;
