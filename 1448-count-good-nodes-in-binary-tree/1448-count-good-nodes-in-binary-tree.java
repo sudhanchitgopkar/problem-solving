@@ -23,7 +23,6 @@ class Solution {
     
     private int recurse (TreeNode root, int max) {
         if (root == null) return max; //base
-        
         if (root.val >= max) { //check good
             max = root.val;
             sol++;
