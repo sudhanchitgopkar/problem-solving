@@ -1,18 +1,18 @@
 class Solution {
     public int rob(int[] nums) {
-        if (nums.length == 1) return nums[0];
-        int [] maxProfit = new int [nums.length+3]; 
-        rob(nums,0,maxProfit);
-        rob(nums,1,maxProfit);
-        return Math.max(maxProfit[0],maxProfit[1]);
-    } //rob
-    
-    private void rob(int [] nums, int curr, int [] seen) {
-        if (curr >= nums.length) return;
-        if (curr + 2 >= nums.length) {seen[curr] = nums[curr]; return;}
-        if (seen[curr+2] == 0 && nums[curr+2] != 0) rob(nums,curr+2,seen);
-        if (curr + 3 >= nums.length) {seen[curr] = nums[curr] + seen[curr+2]; return;}
-        if (seen[curr+3] == 0 && nums[curr+3] != 0) rob(nums,curr+3,seen);
-        seen[curr] = nums[curr] + Math.max(seen[curr+2],seen[curr+3]);
+        int k = nums.length;
+        
+        if (k == 1) return nums[0];
+        if (k == 2) return Math.max(nums[0], nums[1]);
+        
+        int [] sol = new int [k];
+        sol[k-1] = nums[k-1];
+        sol[k-2] = Math.max(nums[k-1],nums[k-2]);
+        
+        for (int i = k-3; i >= 0; i--) {
+            sol[i] = Math.max(nums[i] + sol[i+2], sol[i+1]);
+        } //for
+        
+        return Math.max(sol[0], sol[1]);
     } //rob
 } //Solution
