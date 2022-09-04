@@ -13,8 +13,12 @@ class Solution {
                         r--;
                     } else {
                         ArrayList<Integer> temp = new ArrayList<Integer> ();
-                        temp.add(nums[l++]); temp.add(nums[r--]); temp.add(nums[i]);
+                        temp.add(nums[l++]); 
+                        temp.add(nums[r--]); 
+                        temp.add(nums[i]);
+                        
                         sol.add(temp);
+                        
                         while (r > l && nums[r] == nums[r+1]) r--;
                         while (r > l && nums[l] == nums[l-1]) l++;
                     } //if
