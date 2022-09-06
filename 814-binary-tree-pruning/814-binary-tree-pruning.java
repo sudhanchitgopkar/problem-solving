@@ -18,6 +18,6 @@ class Solution {
         if (root == null) return null;
         root.left = pruneTree(root.left);
         root.right = pruneTree(root.right);
-        return root = root.left == null && root.right == null && root.val == 0 ? null : root;
-    }
-}
+        return root.left == null && root.right == null && root.val == 0 ? null : root;
+    } //pruneTree
+} //Sol
