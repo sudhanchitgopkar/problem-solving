@@ -9,7 +9,6 @@ class Solution {
             while (r+1 < arr.length && arr[r+1] > arr[r]) {
                 r++;
                 asc = true;
-                
             } 
             //check for plateau
             while (r + 1 < arr.length && arr[r+1] == arr[r]) {
@@ -30,7 +29,6 @@ class Solution {
             asc = false;
             desc = false;
         }
-        
         return maxLen;
     } //longestMountain
 } //Solution
