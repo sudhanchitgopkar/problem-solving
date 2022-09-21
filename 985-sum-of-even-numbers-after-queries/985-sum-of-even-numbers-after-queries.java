@@ -6,10 +6,12 @@ class Solution {
         for (int n : nums) if (n % 2 == 0) esum += n;
         
         for (int [] q : queries) {
-            int temp = nums[q[1]];
+            esum = nums[q[1]] % 2 == 0 ? esum - nums[q[1]] : esum;
+            //int temp = nums[q[1]];
             nums[q[1]] += q[0];
-            if (temp % 2 == 0) esum -= temp;
-            if (nums[q[1]] % 2 == 0) esum += nums[q[1]];
+            esum = nums[q[1]] % 2 == 0 ? esum + nums[q[1]] : esum;
+            //if (temp % 2 == 0) esum -= temp;
+            //if (nums[q[1]] % 2 == 0) esum += nums[q[1]];
             sol.add(esum);
         } //for
         
