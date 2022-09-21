@@ -1,6 +1,5 @@
 class Solution {
     public int [] sumEvenAfterQueries(int[] nums, int[][] queries) {
-        //List <Integer> sol = new ArrayList <Integer> ();
         int [] sol = new int [queries.length];
         int esum = 0, i = 0;
         
