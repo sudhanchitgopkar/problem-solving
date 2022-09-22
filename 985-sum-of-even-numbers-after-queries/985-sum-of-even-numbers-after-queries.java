@@ -14,21 +14,14 @@ class Solution {
         for (int [] query : queries) {
             int val = query[0];
             int idx = query[1];
-            
-            if (nums[idx] % 2 == 0 && (nums[idx] + val) % 2 == 0) {
-                esum += (nums[idx] + val) - nums[idx];
-            } else if (nums[idx] % 2 == 0 && (nums[idx] + val) % 2 != 0) {
+            if (nums[idx] % 2 == 0) {
                 esum -= nums[idx];
-            } else if (nums[idx] % 2 != 0 && (nums[idx] + val) % 2 == 0) {
-                esum += nums[idx] + val;
-            } else {
-                //nothing.
             }
-            
             nums[idx] += val;
-            
-            sol[solIndex] = esum;
-            solIndex++;
+            if (nums[idx] % 2 == 0) {
+                esum += nums[idx];
+            }
+            sol[solIndex++] = esum;
         } //for
         
         return sol;
