@@ -13,10 +13,4 @@ class Solution {
        
         return sol.substring(0,sol.length()-1);
     } //revWords
-    
-    private String getRev (String s, String rev, int l, int r) {
-        if (l > r) return rev;
-        rev += s.charAt(r);
-        return getRev(s,rev,l,r-1);
-    } //getRev
 } //Sol
