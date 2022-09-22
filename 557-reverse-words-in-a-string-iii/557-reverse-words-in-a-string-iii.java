@@ -5,7 +5,9 @@ class Solution {
         
         while (l < s.length()) {
             while (r < s.length() && s.charAt(r) != ' ') r++;
-            sol += getRev(s,"",l,r-1) + " ";
+            int temp = r - 1;
+            while (temp >= 0 && temp >= l) sol += s.charAt(temp--);
+            sol += " ";
             l = ++r;
         } //while
        
@@ -17,4 +19,4 @@ class Solution {
         rev += s.charAt(r);
         return getRev(s,rev,l,r-1);
     } //getRev
-}
+} //Sol
