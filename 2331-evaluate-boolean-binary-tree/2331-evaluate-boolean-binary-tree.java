@@ -15,10 +15,6 @@
  */
 class Solution {
     public boolean evaluateTree(TreeNode r) {
-        return r.val < 2 ? r.val == 0 ? false : true : r.val == 2 ? evaluateTree(r.left) || evaluateTree(r.right)
-            : evaluateTree(r.left) && evaluateTree(r.right);
-        //if (r.val < 2) return r.val == 0 ? false : true;
-       // return r.val == 2 ? evaluateTree(r.left) || evaluateTree(r.right)
-         //   : evaluateTree(r.left) && evaluateTree(r.right);
+        return r.val < 2 ? r.val == 0 ? false : true : r.val == 2 ? evaluateTree(r.left) || evaluateTree(r.right) : evaluateTree(r.left) && evaluateTree(r.right);
     } //evalTree
 } //Sol
