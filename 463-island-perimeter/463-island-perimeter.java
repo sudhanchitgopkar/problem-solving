@@ -2,12 +2,9 @@ class Solution {
     public int islandPerimeter(int[][] grid) {
         int sol = 0;
         
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
+        for (int i = 0; i < grid.length; i++)
+            for (int j = 0; j < grid[0].length; j++) 
                 if (grid[i][j] == 1) sol += 4-countNeighbors(grid,i,j);
-            } //for
-        } //for
-        
         return sol;
     }
     
