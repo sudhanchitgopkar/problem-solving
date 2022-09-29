@@ -1,14 +1,12 @@
 class Solution {
     public int islandPerimeter(int[][] grid) {
         int perimeter = 0;
-        for (int r = 0; r < grid.length; r++) {
-            for (int c = 0; c < grid[0].length; c++) {
-                if (grid[r][c] == 1) {
-                    perimeter += 4 - countNeighbors(grid,r,c);
-                } //if
-            } //for
-        } //for
         
+        for (int r = 0; r < grid.length; r++) 
+            for (int c = 0; c < grid[0].length; c++) 
+                if (grid[r][c] == 1) 
+                    perimeter += 4 - countNeighbors(grid,r,c);
+
         return perimeter;
     } //islandPerimeter
     
