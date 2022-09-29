@@ -1,27 +1,24 @@
 class Solution {
     public int islandPerimeter(int[][] grid) {
-       int bds = 0;
+        int perimeter = 0;
         for (int r = 0; r < grid.length; r++) {
-            int geo = 0;
             for (int c = 0; c < grid[0].length; c++) {
-                if (geo != grid[r][c]) {
-                    bds++;
-                    geo = geo == 0 ? 1 : 0;
-                }
-            } // c
-            if (geo == 1) bds++;
-        } // r
+                if (grid[r][c] == 1) {
+                    int neighbors = countNeighbors(grid,r,c);
+                    perimeter += 4 - neighbors;
+                } //if
+            } //for
+        } //for
         
-        for (int r = 0; r < grid[0].length; r++) {
-            int geo = 0;
-            for (int c = 0; c < grid.length; c++) {
-                if (geo != grid[c][r]) {
-                    bds++;
-                    geo = geo == 0 ? 1 : 0;
-                }
-            } // c
-            if (geo == 1) bds++;
-        } // r
-        return bds;
+        return perimeter;
     } //islandPerimeter
-}
+    
+    private int countNeighbors (int [][] grid, int r, int c) {
+        int neighbors = 0;
+        if (r + 1 < grid.length && grid[r+1][c] == 1) neighbors++;
+        if (r - 1 >= 0 && grid[r-1][c] == 1) neighbors++;
+        if (c + 1 < grid[0].length && grid[r][c+1] == 1) neighbors++;
+        if (c - 1 >= 0 && grid[r][c-1] == 1) neighbors++;
+        return neighbors;
+    } //countNeighbors
+} //Sol
