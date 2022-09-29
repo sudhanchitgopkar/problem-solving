@@ -4,8 +4,7 @@ class Solution {
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[0].length; c++) {
                 if (grid[r][c] == 1) {
-                    int neighbors = countNeighbors(grid,r,c);
-                    perimeter += 4 - neighbors;
+                    perimeter += 4 - countNeighbors(grid,r,c);
                 } //if
             } //for
         } //for
