@@ -1,28 +1,26 @@
 class Solution {
     public int maxAreaOfIsland(int[][] grid) {
-        int max = 0;
+        int gMax = 0;
         
-        for (int i = 0; i < grid.length; i++) 
-            for (int j = 0; j < grid[0].length; j++) 
-                if (grid[i][j] == 1) 
-                    max = Math.max(max, dfs(grid,i,j,1));
-                
-        return max;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == 1) {
+                    int size = dfs(grid,i,j);
+                    if (size > gMax) gMax = size;
+                } //iof
+            } //for
+        } //for
+        
+        return gMax;
     } //maxAreaOfIsland
     
-    private int dfs(int [][] grid, int i, int j, int currMax) {
-        grid[i][j] = 0;
+    private int dfs (int [][] grid, int r, int c) {
+        if (r < 0 || c < 0 || 
+            r >= grid.length || c >= grid[0].length) return 0;
+        if (grid[r][c] == 0) return 0;
         
-        if (i + 1 < grid.length && grid[i+1][j] == 1) 
-            currMax = Math.max(currMax,dfs(grid,i+1,j,currMax+1));
-        if (i - 1 >= 0 && grid[i-1][j] == 1) 
-            currMax = Math.max(currMax,dfs(grid,i-1,j,currMax+1));
-        if (j + 1 < grid[0].length && grid[i][j+1] == 1) 
-            currMax = Math.max(currMax,dfs(grid,i,j+1,currMax+1));
-        if (j - 1 >= 0 && grid[i][j-1] == 1) 
-            currMax = Math.max(currMax,dfs(grid,i,j-1,currMax+1));
-       
-        return currMax;
+        grid[r][c] = 0;
+        return 1 + dfs(grid,r-1,c) + dfs(grid,r+1,c) + 
+            dfs(grid,r,c+1) + dfs(grid,r,c-1);
     } //dfs
-    
 } //Sol
