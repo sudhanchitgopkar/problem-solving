@@ -19,10 +19,4 @@ class Solution {
         if (target - root.val == 0 && root.left == null && root.right == null) return true;
         return hasPathSum(root.left, target - root.val) || hasPathSum(root.right, target - root.val);
     } //hasPathSum
-    
-    public boolean check(TreeNode root, int target, int sum) {
-        if (root == null) return false;
-        if (sum + root.val == target && root.left == null && root.right == null) return true;
-        return check(root.left, target, sum + root.val) || check(root.right, target, sum + root.val);
-    } //check
 }
