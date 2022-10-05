@@ -20,9 +20,7 @@ class Solution {
     
     public boolean check(TreeNode root, int target, int sum) {
         if (root == null) return false;
-        sum += root.val;
-        if (sum == target && root.left == null && root.right == null) return true;
-        
-        return check(root.left, target, sum) || check(root.right, target, sum);
+        if (sum + root.val == target && root.left == null && root.right == null) return true;
+        return check(root.left, target, sum + root.val) || check(root.right, target, sum + root.val);
     } //check
 }
