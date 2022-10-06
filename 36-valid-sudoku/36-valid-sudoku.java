@@ -3,21 +3,18 @@ class Solution {
         HashSet <String> seen = new HashSet <String> ();
         
         for (int r = 0; r < board.length; r++) {
-            for (int c = 0; c < board.length; c++) {
-                if (board[r][c] != '.') {
-                    if (seen.contains("row" + r + board[r][c]) || 
-                    seen.contains("col" + c + board[r][c]) ||
-                    seen.contains("sq" + r/3 + "," + c/3 + board[r][c])) {
+            for (int c = 0; c < board[0].length; c++) {
+                if (board[r][c] == '.') continue;
+                if (seen.contains("R" + r + "V" + board[r][c]) ||
+                    seen.contains("C" + c + "V" + board[r][c]) ||
+                    seen.contains("S" + r/3 + "," + c/3 + "V" + board[r][c]))
                         return false;
-                    } else {
-                        seen.add("row" + r + board[r][c]);
-                        seen.add("col" + c + board[r][c]);
-                        seen.add("sq" + r/3 + "," + c/3 + board[r][c]);
-                        } //if
-                } //if
-                } //for
+                seen.add("R" + r + "V" + board[r][c]);
+                seen.add("C" + c + "V" + board[r][c]);
+                seen.add("S" + r/3 +  "," + c/3 + "V" + board[r][c]);
+            } //for
         } //for
-        
+       
         return true;
     } //isValidSudoku
 } //Solution
