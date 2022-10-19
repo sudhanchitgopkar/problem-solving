@@ -1,15 +1,12 @@
 class Solution {
     public boolean checkIfPangram(String s) {
-        boolean found = false;
+        Set <Character> chars = new HashSet<Character> ();
         
-        for (char curr = 'a'; curr <= 'z'; curr++) {
-            for (char c : s.toCharArray()) 
-                if (c == curr) 
-                    found = true;
-            if (!found) return false;
-            found = false;
+        for (int i = 0; i < s.length(); i++) {
+            chars.add(s.charAt(i));
         } //for
         
-        return true;
+        if (chars.size() == 26) return true;
+        else return false;
     } //check
 } //Solution
