@@ -1,10 +1,15 @@
 class Solution {
     public boolean checkIfPangram(String s) {
-        int [] f = new int [26];
+        boolean found = false;
         
-        for (char c : s.toCharArray()) f[c-'a']++;
-        for (int n : f) if (n == 0) return false;
+        for (char curr = 'a'; curr <= 'z'; curr++) {
+            for (char c : s.toCharArray()) 
+                if (c == curr) 
+                    found = true;
+            if (!found) return false;
+            found = false;
+        } //for
+        
         return true;
-        
-    }
-}
+    } //check
+} //Solution
