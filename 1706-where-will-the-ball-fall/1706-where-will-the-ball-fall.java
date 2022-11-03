@@ -6,11 +6,10 @@ class Solution {
     } //findBall
     
     private int getPos(int [][] grid, int row, int col) {
-        if (row >= grid.length) return col >= 0 && col < grid[0].length ? col : -1;
         if (col < 0 || col >= grid[0].length) return -1;
-        
-        if (grid[row][col] == 1 && col + 1 < grid[0].length && grid[row][col+1] == -1) {return -1;}
-        if (grid[row][col] == -1 && col - 1 >= 0 && grid[row][col-1] == 1) {return -1;}
+        if (row >= grid.length) return col;
+        if (grid[row][col] == 1 && col + 1 < grid[0].length && grid[row][col+1] == -1) return -1;
+        if (grid[row][col] == -1 && col - 1 >= 0 && grid[row][col-1] == 1) return -1;
         
         if (grid[row][col] == 1) return getPos(grid,row+1,col+1);
         else return getPos(grid,row+1,col-1);
