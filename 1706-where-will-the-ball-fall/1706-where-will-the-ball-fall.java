@@ -2,7 +2,6 @@ class Solution {
     public int[] findBall(int[][] grid) {
         int [] sol = new int [grid[0].length];
         for (int i = 0; i < sol.length; i++) sol[i] = getPos(grid,0,i);
-        //System.out.println(getPos(grid,0,0));
         return sol;
     } //findBall
     
