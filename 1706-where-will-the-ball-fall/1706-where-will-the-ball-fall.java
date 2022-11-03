@@ -7,7 +7,6 @@ class Solution {
     } //findBall
     
     private int getPos(int [][] grid, int row, int col) {
-        System.out.println("row: " + row + "\tcol: " + col);
         if (row >= grid.length) return col >= 0 && col < grid[0].length ? col : -1;
         if (col < 0 || col >= grid[0].length) return -1;
         
