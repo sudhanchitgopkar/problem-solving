@@ -7,14 +7,14 @@ class Solution {
             if (!isVowel(l)) li++;
             if (!isVowel(r)) ri--;
             if (isVowel(l) && isVowel(r)) s = swap(s,li++,ri--,l,r);
-        }
+        } //while
         
         return s;
     } //reverseVowels
     
     private String swap (String s, int li, int ri, char l, char r) {
         return s.substring(0,li) + r + s.substring(li+1,ri) + l + s.substring(ri+1); 
-    }
+    } //swap
     
     private boolean isVowel(char c) {
        return 
