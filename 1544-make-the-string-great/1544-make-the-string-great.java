@@ -6,9 +6,7 @@ class Solution {
         
         for (int i = 1; i < s.length(); i++) {
             char curr = s.charAt(i), prev = st.isEmpty() ? '1' : st.peek();
-            if (st.isEmpty()) {
-                st.push(curr);
-            } else if (Character.isLetter(curr) && Character.isLetter(prev) &&
+            if (Character.isLetter(curr) && Character.isLetter(prev) &&
                 Character.isUpperCase(curr) != Character.isUpperCase(prev) &&
                 Character.toUpperCase(curr) == Character.toUpperCase(prev)) {
                 st.pop();
