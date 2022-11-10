@@ -19,7 +19,7 @@ class Solution {
                     if (isOneOff(curr, s)) {
                         if (s.equals(end)) return numMutations;
                         else q.offer(s);
-                        bank.remove(bank.indexOf(s));
+                        bank.remove(j);
                         j--;
                     } //if
                 } //for
