@@ -2,22 +2,25 @@ class Solution {
     public int ladderLength(String start, String end, List<String> bank) {
         if (start.equals(end)) return 1;
         Queue <String> q = new LinkedList <String> ();
-        HashSet <String> seen = new HashSet <String> ();
+        //HashSet <String> seen = new HashSet <String> ();
         int numMutations = 2;
         
         q.offer(start);
-        seen.add(start);
+        if (bank.indexOf(start) >= 0) bank.remove(bank.indexOf(start));
+        //seen.add(start);
         
         while (!q.isEmpty()) {
             int qSize = q.size();
             
             for (int i = 0; i < qSize; i++) {
                 String curr = q.poll();
-                for (String s : bank) {
-                    if (!seen.contains(s) && isOneOff(curr, s)) {
+                for (int j = 0; j < bank.size(); j++) {
+                    String s = bank.get(j);
+                    if (isOneOff(curr, s)) {
                         if (s.equals(end)) return numMutations;
                         else q.offer(s);
-                        seen.add(s);
+                        bank.remove(bank.indexOf(s));
+                        j--;
                     } //if
                 } //for
             } //for
