@@ -1,42 +1,37 @@
 class Solution {
-    public int ladderLength(String start, String end, List<String> bank) {
-        if (start.equals(end)) return 1;
-        Queue <String> q = new LinkedList <String> ();
-        //HashSet <String> seen = new HashSet <String> ();
-        int numMutations = 2;
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        Set<String> set = new HashSet<>(wordList);
+        if(!set.contains(endWord)) return 0;
         
-        q.offer(start);
-        if (bank.indexOf(start) >= 0) bank.remove(bank.indexOf(start));
-        //seen.add(start);
+        Queue<String> queue = new LinkedList<>();
+        queue.add(beginWord);
         
-        while (!q.isEmpty()) {
-            int qSize = q.size();
-            
-            for (int i = 0; i < qSize; i++) {
-                String curr = q.poll();
-                for (int j = 0; j < bank.size(); j++) {
-                    String s = bank.get(j);
-                    if (isOneOff(curr, s)) {
-                        if (s.equals(end)) return numMutations;
-                        else q.offer(s);
-                        bank.remove(j);
-                        j--;
-                    } //if
-                } //for
-            } //for
-            numMutations++;
-        } //while
+        Set<String> visited = new HashSet<>();
+        queue.add(beginWord);
         
-        return 0;   
+        int changes = 1;
+        
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for(int i = 0; i < size; i++){
+                String word = queue.poll();
+                if(word.equals(endWord)) return changes;
+                
+                for(int j = 0; j < word.length(); j++){
+                    for(int k = 'a'; k <= 'z'; k++){
+                        char arr[] = word.toCharArray();
+                        arr[j] = (char) k;
+                        
+                        String str = new String(arr);
+                        if(set.contains(str) && !visited.contains(str)){
+                            queue.add(str);
+                            visited.add(str);
+                        }
+                    }
+                }
+            }
+            ++changes;
+        }
+        return 0;
     }
-    
-    private boolean isOneOff(String a, String b) {
-        int numDiffs = 0;
-        for (int i = 0; i < a.length(); i++) {
-            if (a.charAt(i) != b.charAt(i)) numDiffs++;
-            if (numDiffs > 1) return false;
-        } //for
-        
-        return numDiffs == 1;
-    } //isOneOff
 }
