@@ -7,5 +7,5 @@ class Solution {
             if (seen.contains(freq.get(key))) return false;
             else seen.add(freq.get(key));
         return true;
-    }
-}
+    } //uniqueOccurrences
+} //Sol
