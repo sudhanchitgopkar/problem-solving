@@ -8,8 +8,7 @@ class BrowserHistory {
     }
     
     public void visit(String url) {
-        history.add(curr + 1, url);
-        curr++;
+        history.add(++curr, url);
         size = curr + 1;
     }
     
@@ -20,7 +19,7 @@ class BrowserHistory {
     }
     
     public String forward(int steps) {
-        if (size > curr + steps) curr += steps;
+        if (curr + steps < size) curr += steps;
         else curr = size - 1;
         return history.get(curr);
     }
