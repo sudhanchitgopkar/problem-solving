@@ -4,22 +4,11 @@ class Solution {
         int sol = 0;
         for (int task : tasks) diff.put(task, diff.getOrDefault(task, 0) + 1);
         
-        for (int d : diff.keySet()) {
-            int rounds = calcRounds(diff.get(d));
-            if (rounds == -1) return -1;
-            else sol += rounds;
-        } //for
+        for (int d : diff.keySet()) 
+            if (diff.get(d) == 1) return -1;
+            else sol += diff.get(d) % 3 == 0 ? diff.get(d)/3 : diff.get(d)/3 + 1;
+        
 
          return sol;
     } //minRounds
-
-    private int calcRounds (int t) {
-        if (t == 1) return -1;
-        else if (t == 4) return 2;
-        else if (t % 3 == 0) return t/3;
-        else if (t % 2 == 0 && (t-2) % 3 == 0) return ((t - 2) / 3) + 1;
-        else return Math.min(calcRounds(t-3), calcRounds(t-2)) + 1;
-    } //calcRounds
 } //Sol
-
-
