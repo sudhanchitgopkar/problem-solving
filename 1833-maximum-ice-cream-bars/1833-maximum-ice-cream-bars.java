@@ -1,12 +1,14 @@
-class Solution {
-    public int maxIceCream(int[] costs, int coins) {
-        int sol = 0;
-        Arrays.sort(costs);
+class Solution:
+    def maxIceCream(self, costs: List[int], coins: int) -> int:
+        costs.sort()
+        sol = 0
         
-        for (int cost : costs) 
-            if ((coins -= cost) >= 0) sol++;
-            else break;
-
-       return sol; 
-    } //maxIceCream
-} //Sol
+        for cost in costs:
+            coins -= cost
+            if coins < 0:
+                return sol
+            else:
+                sol += 1
+        
+        return sol
+        
