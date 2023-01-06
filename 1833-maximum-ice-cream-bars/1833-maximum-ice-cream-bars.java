@@ -1,7 +1,7 @@
 class Solution {
     public int maxIceCream(int[] costs, int coins) {
-        Arrays.sort(costs);
         int sol = 0;
+        Arrays.sort(costs);
         
         for (int cost : costs) 
             if ((coins -= cost) >= 0) sol++;
