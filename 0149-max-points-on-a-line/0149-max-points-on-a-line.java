@@ -1,7 +1,6 @@
 class Solution {
     public int maxPoints(int[][] points) {
         HashMap <String, HashSet<String>> lines = new HashMap <> ();
-        //Arrays.sort(points, (a,b) -> Integer.compare(a[0],b[0]));
         int max = 1;
 
         for (int i = 0; i < points.length; i++) {
