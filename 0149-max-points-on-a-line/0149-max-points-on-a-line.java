@@ -15,7 +15,9 @@ class Solution {
                     double m = ((ref[1] - curr[1] * 1.0)/(ref[0] - curr[0]));
                     double b = ref[1] - (m * ref[0]);
                     String sm = String.format("%.8f", m), sb = String.format("%.8f", b);
-                    lines.put(i + "M" + sm + "B" + sb, lines.getOrDefault(i + "M" + sm + "B" + sb, 1) + 1);
+                    String key = new StringBuilder().append(i).append('M').append(sm)
+                        .append('B').append(sb).toString();
+                    lines.put(key, lines.getOrDefault(key, 1) + 1);
                 } //else
             } //for
         } //for
