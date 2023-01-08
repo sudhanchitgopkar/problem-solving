@@ -9,7 +9,8 @@ class Solution {
                 int [] ref = points[j];
                 if (i == j) continue;
                 if (curr[0] == ref[0]) { //points are vertical
-                    lines.put(i + "V" + curr[0], lines.getOrDefault(i + "V" + curr[0],1) + 1);
+                    String key = new StringBuilder().append(i).append('V').append(curr[0]).toString();
+                    lines.put(key, lines.getOrDefault(key,1) + 1);
                 } else { 
                     double m = ((ref[1] - curr[1] * 1.0)/(ref[0] - curr[0]));
                     double b = ref[1] - (m * ref[0]);
