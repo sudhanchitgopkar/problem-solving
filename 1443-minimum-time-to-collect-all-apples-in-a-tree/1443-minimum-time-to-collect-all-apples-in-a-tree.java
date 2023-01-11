@@ -24,6 +24,7 @@ class Solution {
         } //if
 
         for (int next : graph.get(curr)) {
+            if (targets.isEmpty()) return;
             if (seen.contains(next)) continue;
             dfs(next,targets,seen);
         } //for
