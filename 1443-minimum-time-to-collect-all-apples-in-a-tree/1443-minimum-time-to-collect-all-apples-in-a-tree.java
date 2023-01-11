@@ -21,7 +21,6 @@ class Solution {
         if (targets.contains(curr)) {
             targets.remove(curr);
             used.addAll(seen);
-            //return;
         } //if
 
         for (int next : graph.get(curr)) {
