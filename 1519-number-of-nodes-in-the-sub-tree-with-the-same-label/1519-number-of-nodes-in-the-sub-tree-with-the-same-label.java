@@ -29,8 +29,7 @@ class Solution {
             for (int i = 0; i < res.length; i++) newFreq[i] += res[i] - freq[i];
         } //for
 
-        newFreq[id[curr]-'a']++;
-        sol[curr] = newFreq[id[curr]-'a'];
+        sol[curr] = ++newFreq[id[curr]-'a'];
         return newFreq;
     } //dfs
 } //Sol
