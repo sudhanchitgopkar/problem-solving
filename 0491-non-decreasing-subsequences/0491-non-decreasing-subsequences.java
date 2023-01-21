@@ -1,6 +1,6 @@
 class Solution {
     List<List<Integer>> sol;
-    List<Integer> vals;
+    List<Integer> vals; //copy of nums as list
     HashSet <List<Integer>> seen;
 
     public List<List<Integer>> findSubsequences(int[] nums) {
@@ -18,12 +18,14 @@ class Solution {
     } //findSub
 
     private void getSubs(List<Integer> n, int i) {
+        //subsequence found
         if (n.size() >= 2 && !seen.contains(n)) {
             List <Integer> solSub = new ArrayList <> (n);
             sol.add(solSub);
             seen.add(solSub);
         } //if 
 
+        //backtrack
         for (int j = i + 1; j < vals.size(); j++) {
             if (vals.get(j) >= vals.get(i)) {
                 n.add(vals.get(j));
@@ -31,6 +33,5 @@ class Solution {
                 n.remove(n.size()-1);
             } //if
         } //for
-
     } //getSubs
 } //Sol
