@@ -1,11 +1,11 @@
 class Solution {
     public int snakesAndLadders(int[][] board) {
-        Queue <Integer> q = new LinkedList <> (); 
-        HashSet <Integer> seen = new HashSet <> ();
         int sol = 1, n = board.length, m = board[0].length;
+        Queue <Integer> q = new LinkedList <> (); 
+        boolean [] seen = new boolean [n * m];
 
         q.offer(1);
-        seen.add(1);
+        seen[1] = true;
 
         while (!q.isEmpty()) {
             int size = q.size();
@@ -15,9 +15,9 @@ class Solution {
                     if (curr + roll > n * m) break;
                     int next = getPos(curr + roll, board) == -1 ? curr + roll : getPos(curr + roll, board);
                     if (next == n * m) return sol;
-                    if (!seen.contains(next)) {
+                    if (!seen[next]) {
                         q.offer(next);
-                        seen.add(next);
+                        seen[next] = true;
                     } //if
                 } //for
             } //for
