@@ -26,7 +26,7 @@ class MyCircularDeque {
     
     public boolean deleteFront() {
         if (isEmpty()) return false;
-        f = ++f >= cdq.length ? 0 : f;
+        f = ++f % cdq.length;
         size--;
         return true;
     } //deleteFront
