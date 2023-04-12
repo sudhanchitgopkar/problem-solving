@@ -19,7 +19,7 @@ class MyCircularDeque {
     public boolean insertLast(int value) {
         if (isFull()) return false;
         cdq[l] = value;
-        if (++l >= cdq.length) l = 0;
+         l = ++l % cdq.length;
         size++;
         return true;
     } //insertLast
