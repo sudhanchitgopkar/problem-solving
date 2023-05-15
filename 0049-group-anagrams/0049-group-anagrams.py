@@ -1,7 +1,6 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         groups = {}
-        sol = []
         
         for s in strs:
             sort = ''.join(sorted(s))
@@ -9,9 +8,6 @@ class Solution:
                 groups[sort].append(s)
             else:
                 groups[sort] = [s]
-                
-        for group in groups:
-            sol.append(groups[group])
-        
-        return sol
+
+        return list(groups.values())
         
