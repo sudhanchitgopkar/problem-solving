@@ -18,6 +18,7 @@ class Solution:
         for num in freq:
             buckets[freq[num]].append(num)
         
+        #iterate backwards till k elements found
         for i in range(len(buckets) - 1, -1, -1):
             for num in buckets[i]:
                 sol.append(num)
