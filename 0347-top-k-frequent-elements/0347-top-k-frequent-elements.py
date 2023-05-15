@@ -23,16 +23,4 @@ class Solution:
                 sol.append(num)
             if len(sol) == k:
                 return sol
-                
-            
-        
-        
-        
-
-# 1 -> 2
-# 2 -> 3
-# 3 -> 2
-
-# [ ] [ ] [1, 3] [2] 
-#  0   1   2      3
         
