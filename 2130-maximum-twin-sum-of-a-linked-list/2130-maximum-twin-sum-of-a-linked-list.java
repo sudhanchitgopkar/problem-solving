@@ -1,7 +1,6 @@
 class Solution {
     public int pairSum(ListNode head) {
         ListNode mid = head, run = head.next;
-        Stack <Integer> st = new Stack <> ();
         int maxSum = -1;
 
         //find halfway point
@@ -10,20 +9,15 @@ class Solution {
             run = run.next.next;
         } //while
 
-        mid = mid.next;
+        //reverse all links after halfway
+        reverse(mid.next);
 
-        //add all remaining to stack
-        while (mid != null) {
-            st.push(mid.val);
-            mid = mid.next;
-        } //while
-
-
-        //get max twin sum
-        ListNode curr = head;
-        while (!st.isEmpty()) {
-            maxSum = Math.max(maxSum, st.pop() + curr.val);
-            curr = curr.next;
+        //iterate through twins and find max sum
+        ListNode beg = head;
+        while (run != null) {
+            maxSum = Math.max(maxSum, beg.val + run.val);
+            beg = beg.next;
+            run = run.next;
         } //while
 
         return maxSum;
