@@ -8,7 +8,7 @@ public:
     int distribute(int i, int k, vector<int>& cookies, vector<int>& kids) {
         if (i == cookies.size()) {
             int sol = INT_MIN;
-            for (auto & kid : kids) sol = max(kid, sol);
+            for (int kid : kids) sol = max(kid, sol);
             return sol;
         } //if
 
@@ -18,7 +18,7 @@ public:
             if (kids[kid] < sol) sol = min(sol, distribute(i + 1, k, cookies, kids));
             kids[kid] -= cookies[i];
             if (kids[kid] == 0) break;
-        } //for 
+        } //for
 
         return sol;
     } //int
