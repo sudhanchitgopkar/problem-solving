@@ -15,6 +15,7 @@ public:
         int sol = INT_MAX;
         for (int kid = 0; kid < k; kid++) {
             kids[kid] += cookies[i];
+            if (sol == cookies.size()/k) return sol;
             if (kids[kid] < sol) sol = min(sol, distribute(i + 1, k, cookies, kids));
             kids[kid] -= cookies[i];
         } //for 
