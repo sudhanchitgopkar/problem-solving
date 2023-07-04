@@ -1,10 +1,13 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        int sol = 0;
+        unordered_map <int, int> freq;
 
-        for (int num : nums) sol = sol ^ num;
+        for (int num : nums) freq[num]++;
 
-        return sol;
+        for (auto entry : freq) 
+            if (entry.second == 1) return entry.first;
+
+        return -1; //unreachable
     } //singleNumber
 };
