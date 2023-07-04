@@ -2,6 +2,7 @@
 class Solution {
 public:
     int minimizedMaximum(int n, vector<int>& nums) {
+        ios_base::sync_with_stdio(0);
         long long sum = 0, l = 1, r = -1, sol = INT_MAX;
 
         for (int num : nums) sum += num;
