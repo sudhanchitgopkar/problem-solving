@@ -5,7 +5,7 @@ public:
         unordered_map<int, int> dp;
 
         for (int i = n - 1; i >= 0; i--) {
-            dp[arr[i] - diff] = max(dp[arr[i] - diff], dp[arr[i]] + 1);
+            dp[arr[i] - diff] =  dp[arr[i]] + 1;
         } //for
 
         for (auto & entry : dp) {
