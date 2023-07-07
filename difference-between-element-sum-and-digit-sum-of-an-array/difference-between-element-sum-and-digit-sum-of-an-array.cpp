@@ -1,22 +1,23 @@
 class Solution {
 public:
     int differenceOfSum(vector<int>& nums) {
-        long long sum = 0, digs = 0;
+        int n = nums.size(), s = 0, ds = dsum(nums);
+        
+        for (int n : nums) s += n;
 
-        for (int num : nums) {
-            sum += num;
-            digs += digitSum(num);
-        } //for
-
-        return abs(sum - digs);
+        return abs(ds - s);
     } //diffOfSum
 
-    int digitSum(long long n) {
-        int sum = 0;
-        while (n != 0) {
-            sum += n % 10;
-            n /= 10;
-        } //while
-        return sum;
-    } //digitSum
+    int dsum(vector<int>& nums) {
+        int ds = 0;
+
+        for (int n : nums) {
+            while (n != 0) {
+                ds += n % 10;
+                n /= 10;
+            } //while
+        } //for
+
+        return ds;
+    } //dsum
 };
