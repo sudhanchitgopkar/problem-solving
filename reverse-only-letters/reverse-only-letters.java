@@ -5,14 +5,14 @@ class Solution {
 
         for (int i = n - 1; i >= 0; i--) {
             char c = s.charAt(i);
-            if (Character.isUpperCase(c) || Character.isLowerCase(c)) {
+            if (Character.isLetter(c)) {
                 sb.append(c);
             } //if
         } //for
 
         for (int i = 0; i < n; i++) {
             char c = s.charAt(i);
-            if (!Character.isUpperCase(c) && !Character.isLowerCase(c)) {
+            if (!Character.isLetter(c)) {
                 sb.insert(i, c);
             } //if
         } //for
