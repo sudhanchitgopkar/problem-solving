@@ -12,30 +12,22 @@
 class Solution {
 public:
     int minDepth(TreeNode* root) {
-        queue <TreeNode*> q;
-        int sol = 1;
-
         if (root == nullptr) return 0;
-        q.push(root);
-
-        while (!q.empty()) {
-            int size = q.size();
-
-            for (int i = 0; i < size; i++) {
-                TreeNode* curr = q.front();
-                q.pop();
-
-                if (curr->left == nullptr && curr->right == nullptr) {
-                    return sol;
-                } else {
-                    if (curr->left != nullptr) q.push(curr->left);
-                    if (curr->right != nullptr) q.push(curr->right);
-                } //if
-            } //for
-
-            sol++;
-        } //while  
-
-        return -1; //should be unreachable 
+        return dfs(root, 1);
     } //minDepth
+
+    int dfs(TreeNode* root, int depth) {
+        if (root->left == nullptr && root->right == nullptr) return depth;
+
+        int sol = INT_MAX;
+        if (root->left != nullptr) {
+            sol = min(sol, dfs(root->left, 1 + depth));
+        }//if
+
+        if (root->right != nullptr) {
+            sol = min(sol, dfs(root->right, 1 + depth));
+        } //if
+
+        return sol;
+    } //dfs
 };
