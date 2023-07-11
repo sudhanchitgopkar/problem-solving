@@ -12,26 +12,33 @@ public:
     unordered_map <int, vector<int>> adj; 
     vector<int> sol;  
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
-        build_graph(root, root);
+        build_graph(root);
         unordered_set<int> seen;
         dfs(target->val, 0, k, seen);
         return sol;
     } //distK
 
-    void build_graph(TreeNode* curr, TreeNode* prev) {
-        if (curr->val != prev->val) {
-            adj[curr->val].push_back(prev->val);
-        } //if
+    void build_graph(TreeNode* root) {
+        queue <TreeNode*> q;
 
-        if (curr->left != nullptr) {
-            adj[curr->val].push_back(curr->left->val);
-            build_graph(curr->left, curr);
-        } //if
+        q.push(root);
 
-        if (curr->right != nullptr) {
-            adj[curr->val].push_back(curr->right->val);
-            build_graph(curr->right, curr);
-        } //if
+        while(!q.empty()) {
+            TreeNode* curr = q.front();
+            q.pop();
+
+            if (curr->left != nullptr) {
+                adj[curr->val].push_back(curr->left->val);
+                adj[curr->left->val].push_back(curr->val);
+                q.push(curr->left);
+            } //if
+
+            if (curr->right != nullptr) {
+                adj[curr->val].push_back(curr->right->val);
+                adj[curr->right->val].push_back(curr->val);
+                q.push(curr->right);
+            } //if
+        } //while
     } //build_graph
 
     void dfs(int curr, int dist, int k, unordered_set<int> seen) {
