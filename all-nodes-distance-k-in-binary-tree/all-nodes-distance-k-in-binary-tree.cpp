@@ -13,8 +13,7 @@ public:
     vector<int> sol;  
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
         build_graph(root);
-        unordered_set<int> seen;
-        dfs(target->val, 0, k, seen);
+        bfs(target->val, k);
         return sol;
     } //distK
 
@@ -41,18 +40,30 @@ public:
         } //while
     } //build_graph
 
-    void dfs(int curr, int dist, int k, unordered_set<int> seen) {
-        if (dist == k) {
-            sol.push_back(curr);
-            return;
-        } //if
+    void bfs(int target, int k) {
+        queue <int> q;
+        unordered_set<int> seen;
+        q.push(target);
 
-        seen.insert(curr);
+        while (k != 0) {
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
+                int curr = q.front();
+                seen.insert(q.front());
+                q.pop();
 
-        for (int next : adj[curr]) {
-            if (!seen.count(next)) {
-                dfs(next, dist + 1, k, seen);
-            } //if
-        } //for
-    } //dfs
+                for (int next : adj[curr]) {
+                    if (!seen.count(next)) {
+                        q.push(next);
+                    } //if
+                } //for
+            } //for
+            --k;
+        } //while
+        
+        while (!q.empty()) {
+            sol.push_back(q.front());
+            q.pop();
+        } //while
+    } //bfs
 };
