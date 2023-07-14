@@ -1,3 +1,11 @@
+#include<iostream>
+static auto _ = [](){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return nullptr;
+}();
+
 class Solution {
 public:
     int longestSubsequence(vector<int>& arr, int diff) {
