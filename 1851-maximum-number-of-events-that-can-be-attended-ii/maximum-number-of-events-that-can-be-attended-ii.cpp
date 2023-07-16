@@ -7,8 +7,6 @@ public:
             return a[0] < b[0];   
         });
 
-        for (vector<int> event : events) cout << event[0] << " - " << event[1] << "\n";
-
         vector<vector<int>> dp (n, vector<int> (k + 1, -1));
         solve(0, k, events, dp);
         return dp[0][k];
@@ -24,8 +22,7 @@ public:
         } //if
 
         //do what's better: taking this event and moving on or not taking it
-        dp[i][k] = max( 
-                       events[i][2] + solve(nextEvent(i, events), k - 1, events, dp),
+        dp[i][k] = max(events[i][2] + solve(nextEvent(i, events), k - 1, events, dp),
                        solve(i + 1, k, events, dp));
         return dp[i][k];
     } //solve
