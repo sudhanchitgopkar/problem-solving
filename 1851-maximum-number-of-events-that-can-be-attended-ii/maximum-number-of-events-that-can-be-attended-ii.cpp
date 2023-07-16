@@ -2,6 +2,7 @@ class Solution {
 public:
     int maxValue(vector<vector<int>>& events, int k) {
         int n = events.size();
+        //sort by start date
         sort(events.begin(), events.end(), 
         [] (const vector<int>& a, const vector<int>& b) {
             return a[0] < b[0];   
@@ -28,8 +29,8 @@ public:
     } //solve
     
     int nextEvent(int currEvent, vector<vector<int>>& events) {
-        int l = currEvent, r = events.size() - 1, next = r;
-
+        int l = currEvent, r = events.size() - 1;
+        //use a binary search to find the next possible event to attend
         while (l <= r) {
             int m = l + ((r - l)/2);
             if (events[m][0] > events[currEvent][1]) {
