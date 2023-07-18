@@ -51,8 +51,6 @@ class LRUCache {
         } else {
             MRU.val = value;
         } //if
-        System.out.println("PUT: " + key + " -> " + value);
-        System.out.println("MRU IS: " + MRU.val);
     } //put
 } //LRUCache
 
