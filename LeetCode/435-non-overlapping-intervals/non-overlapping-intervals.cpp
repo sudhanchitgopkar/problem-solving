@@ -7,7 +7,7 @@ public:
         sort(intervals.begin(), intervals.end());
 
         while (r < n) {
-            if (intervals[l][1] >  intervals[r][0]) {
+            if (intervals[l][1] > intervals[r][0]) {
                 if (intervals[l][1] <= intervals[r][1]) {
                     l = l;
                 } else {
