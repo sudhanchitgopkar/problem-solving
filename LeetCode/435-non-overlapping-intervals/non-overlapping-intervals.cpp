@@ -7,7 +7,7 @@ public:
         sort(intervals.begin(), intervals.end());
 
         while (r < n) {
-            if (intervals[l][1] > intervals[r][0]) {
+            if (isOverlap(intervals[l], intervals[r])) {
                 if (intervals[l][1] <= intervals[r][1]) {
                     l = l;
                 } else {
@@ -22,4 +22,8 @@ public:
 
         return sol;
     } //eraseOverlapping
+
+    bool isOverlap(const vector<int>& a, const vector<int>& b) {
+        return (a[1] > b[0]);
+    } //isOverlap
 };
