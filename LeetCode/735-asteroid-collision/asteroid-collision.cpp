@@ -12,7 +12,7 @@ public:
                 } else {
                     bool done = false;
                     while (!done) {
-                        int survivor = survivors.size() == 0 ? -1: survivors[survivors.size() - 1];
+                        int survivor = survivors.size() == 0 ? -1 : survivors.back();
                         if (survivors.empty() || survivor < 0) {
                             survivors.push_back(asteroid);
                             done = true;
