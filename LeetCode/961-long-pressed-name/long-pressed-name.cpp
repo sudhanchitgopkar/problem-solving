@@ -17,6 +17,6 @@ public:
             } //if
         } //for
 
-        return j == n ? true : false;
+        return j == n;
     } //isLongPressed
 };
