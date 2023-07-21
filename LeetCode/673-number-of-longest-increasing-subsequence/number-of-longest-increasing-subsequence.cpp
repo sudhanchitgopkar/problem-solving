@@ -8,20 +8,20 @@ public:
         ways[n - 1] = 1;
 
         for (int i = n - 2; i >= 0; i--) {
-            int curr = nums[i], currLIS = 0, currWays = 1;
+            int curr = nums[i], currLIS = 1, currWays = 1;
 
             for (int j = i + 1; j < n; j++) {
                 if (nums[j] > curr) {
-                    if (LIS[j] > currLIS) {
-                        currLIS = LIS[j];
+                    if (LIS[j] + 1 > currLIS) {
+                        currLIS = LIS[j] + 1;
                         currWays = ways[j];
-                    } else if (LIS[j] == currLIS) {
+                    } else if (LIS[j] + 1 == currLIS) {
                         currWays += ways[j];
                     } //if
                 } //if
             } //for
 
-            LIS[i] = currLIS + 1;
+            LIS[i] = currLIS;
             ways[i] = currWays;
             maxLIS = max(LIS[i], maxLIS);
         } //for
