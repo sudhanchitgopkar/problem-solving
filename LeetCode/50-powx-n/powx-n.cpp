@@ -11,8 +11,7 @@ public:
 
         double res = pls(x, n/2);
         res *= res;
-        //cout << n << " % " << 2 << " = " << n % 2 << endl;
-        if (n % 2 == 1 || n % 2 == -1) res *= x;
-        return res;
+        if (n % 2 == 0) return res;
+        return res * x;
     } //pow
 };
