@@ -2,7 +2,6 @@ class Solution {
 public:
     double myPow(double x, int n) {
         double sol = pls(x, n);
-        cout << sol;
         return n < 0 ? 1.0/sol : sol;
     } //myPow
     
