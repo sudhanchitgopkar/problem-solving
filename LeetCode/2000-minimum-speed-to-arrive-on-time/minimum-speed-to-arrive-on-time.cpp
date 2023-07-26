@@ -14,7 +14,7 @@ public:
             } //if
         } //while   
 
-        return l == 0 ? 1 : l;
+        return l;
     } //minSpeedOnTime
 
     bool check (vector<int>& dists, double deadline, int speed) {
