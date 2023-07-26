@@ -2,7 +2,7 @@ class Solution {
 public:
     int minSpeedOnTime(vector<int>& dists, double deadline) {
         if (dists.size() - 1 >= deadline) return -1;
-        int l = 0, n = dists.size(), r = 10e7;
+        int l = 0, n = dists.size(), r = 1e7;
 
         while (l <= r) {
             int m = l + (r - l)/2;
