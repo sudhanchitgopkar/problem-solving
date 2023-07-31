@@ -1,14 +1,5 @@
 class Solution {
 public:
-    void fuck (vector<vector<int>> fucknuts) {
-        for (auto & shit : fucknuts) {
-            for (auto shitty : shit) {
-                cout << shitty << " ";
-            } //for
-            cout << endl;
-        } //for
-    } //fuck
-
     int minimumDeleteSum(string a, string b) {
         int m = a.size(), n = b.size();
         vector<vector<int>> dp (m, vector<int> (n));
@@ -50,8 +41,7 @@ public:
                 } //if
             } //for
         } //for
-
-        //fuck(dp);
+        
         return dp[0][0];
     } //minDeleteSum
 
