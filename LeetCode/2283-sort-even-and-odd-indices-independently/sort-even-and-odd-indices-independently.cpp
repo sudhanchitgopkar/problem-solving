@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> sortEvenOdd(vector<int>& nums) {
         int n = nums.size();
-        vector<int> even, odd, sol;
+        vector<int> even, odd;
 
         for (int i = 0; i < n; i+= 2) {
             even.push_back(nums[i]);
@@ -19,12 +19,12 @@ public:
 
         for (int i = 0; i < n; i++) {
             if (i % 2 == 0) {
-                sol.push_back(even[e++]);
+                nums[i] = even[e++];
             } else {
-                sol.push_back(odd[o--]);
+                nums[i] = odd[o--];
             } //if
         } //for
 
-        return sol;
+        return nums;
     } //sortEvenOdd
 };
