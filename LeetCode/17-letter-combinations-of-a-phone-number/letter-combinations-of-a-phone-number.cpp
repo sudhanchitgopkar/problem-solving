@@ -24,8 +24,9 @@ public:
         } //if
 
         for (char c : um[digits[i]]) {
-            string next = curr + c;
-            dfs(i + 1, next, um, digits);
+            curr.push_back(c);
+            dfs(i + 1, curr, um, digits);
+            curr.pop_back();
         } //for
     } //dfs
 };
