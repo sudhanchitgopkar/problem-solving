@@ -30,7 +30,7 @@ class Solution {
 
     private void dfs (TreeNode root, boolean [] used, HashSet<String> seen) {
         if (all(used)) {
-            String s = print(root);
+            String s = getString(root);
             if (!seen.contains(s)) {
                 sols.add(copy(root));
                 seen.add(s);   
@@ -79,20 +79,20 @@ class Solution {
         else remove(root.right, toDel);
     } //del
 
-    private String print(TreeNode root) {
-        String s = "";
+    private String getString(TreeNode root) {
+        StringBuilder s = new StringBuilder();
         Queue <TreeNode> q = new LinkedList <> ();
         q.offer(root);
 
         while (!q.isEmpty()) {
             TreeNode curr = q.poll();
-            s += curr.val + ",";
-            if (curr.left == null) s += "null,";
+            s.append(curr.val + ",");
+            if (curr.left == null) s.append("null,");
             else q.offer(curr.left);
-            if (curr.right == null) s += "null,";
+            if (curr.right == null) s.append("null,");
             else q.offer(curr.right);
         } //while
 
-        return s;
+        return s.toString();
     } //print
 } //Sol
