@@ -15,18 +15,19 @@ class Solution {
     } //numIslands
 
     private void invalidate (int x, int y, char[][] grid) {
+        if (grid[x][y] == '0') return;
         grid[x][y] = '0';
 
-        if (in(x - 1, y, grid) && grid[x - 1][y] == '1') {
+        if (in(x - 1, y, grid)) {
             invalidate(x - 1, y, grid);
         } //if
-        if (in(x + 1, y, grid) && grid[x + 1][y] == '1') {
+        if (in(x + 1, y, grid)) {
             invalidate(x + 1, y, grid);
         } //if
-        if (in(x, y - 1, grid) && grid[x][y - 1] == '1') {
+        if (in(x, y - 1, grid)) {
             invalidate(x, y - 1, grid);
         } //if
-        if (in(x, y + 1, grid) && grid[x][y + 1] == '1') {
+        if (in(x, y + 1, grid)) {
             invalidate(x, y + 1, grid);
         } //if
     } //invalidate
