@@ -15,13 +15,12 @@ public:
             } //for
 
             if (possPairs >= p) {
-                sol = min(sol, m);
-                r = m - 1;
+                r = --m;
             } else {
-                l = m + 1;
+                l = ++m;
             } //if
         } //while
 
-        return sol;
+        return l;
     } //minMax
 };
