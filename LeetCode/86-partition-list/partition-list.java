@@ -58,6 +58,7 @@ class Solution {
                 curr = curr.next;
             } //if
 
-        return head;  
+        System.gc(); 
+        return head;   
     } //partition
 } //Solution
