@@ -29,11 +29,3 @@ class Solution {
         return sol;
     } //maxSlidingWindow
 } //Sol
-
-class Pair {
-    protected int val, index;
-    public Pair (int val, int index) {
-        this.val = val;
-        this.index = index;
-    } //Pair
-} //Pair
