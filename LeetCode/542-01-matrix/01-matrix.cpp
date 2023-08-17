@@ -22,7 +22,7 @@ public:
             for (int i = 0; i < size; i++) {
                 pair <int, int> curr = q.front();
                 q.pop();
-                
+                cout << curr.first << "\t" << curr.second << "\n";
                 sol[curr.first][curr.second] = dist;
 
                 for (vector<int> dir : dirs) {
