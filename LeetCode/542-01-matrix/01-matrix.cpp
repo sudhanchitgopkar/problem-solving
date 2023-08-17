@@ -13,7 +13,6 @@ public:
                 } //if
             } //for
         } //for
-        cout << q.size() << "\n";
         while (!q.empty()) {
             int size = q.size();
             for (int i = 0; i < size; i++) {
