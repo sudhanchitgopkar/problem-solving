@@ -19,8 +19,10 @@ class Solution {
         if (substr.equals(s)) return false;
         if (s.length() % substr.length() != 0) return false;
 
-        for (int i = substr.length(); i < s.length(); i += substr.length()) {
-            if (!s.substring(i, i + substr.length()).equals(substr)) return false;
+        for (int i = substr.length(); i < s.length(); i++) {
+            char curr = substr.charAt(i % substr.length());
+            if (curr != s.charAt(i)) return false;
+            //if (!s.substring(i, i + substr.length()).equals(substr)) return false;
         } //for     
         
         return true;
