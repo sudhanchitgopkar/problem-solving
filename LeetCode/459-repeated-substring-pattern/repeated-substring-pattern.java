@@ -35,8 +35,8 @@ class Solution {
     } //checkIterative
 
     private boolean check(String substr, StringBuilder curr, String s) {
-        if (curr.toString().equals(s)) return true;
         if (curr.length() > s.length()) return false;
+        if (curr.length() == s.length() && curr.toString().equals(s)) return true;
         curr.append(substr);
         return check(substr, curr, s);
     } //check
