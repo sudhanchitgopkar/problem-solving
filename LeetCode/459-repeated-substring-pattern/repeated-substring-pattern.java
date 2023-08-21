@@ -3,18 +3,27 @@ class Solution {
         if (s.length() == 1) return false;
 
        //try every substring
+       /*
        for (int r = 0; r < s.length()/2; r++) {
             if (checkIterative(r, s)) {
                 return true;
             } //if
        } //for
+        */
+
+        for (int i = 0; i < s.length()/2; i++) {
+            if (s.length() % (i + 1) != 0) continue;
+            String substr = s.substring(0, i + 1);
+            if (check(substr, new StringBuilder (), s)) {
+                return true;
+            } //if
+        } //for
 
        //if none have worked
        return false; 
     } //repeatedSubstringPattern
 
     private boolean checkIterative(int r, String s) {
-        //if (r == s.length()) return false;
         if (s.length() % (r + 1) != 0) return false;
 
         for (int i = r + 1; i < s.length(); i++) {
@@ -25,10 +34,10 @@ class Solution {
         return true;
     } //checkIterative
 
-    private boolean check(String substr, String curr, String s) {
-        if (curr.equals(s)) return true;
+    private boolean check(String substr, StringBuilder curr, String s) {
+        if (curr.toString().equals(s)) return true;
         if (curr.length() > s.length()) return false;
-        curr += substr;
+        curr.append(substr);
         return check(substr, curr, s);
     } //check
 } //Sol
