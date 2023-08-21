@@ -5,10 +5,10 @@ class Solution {
        //try every substring
        for (int l = 1; l <= s.length()/2; l++) {
             String substr = s.substring(0, l);
-            if (check(substr, substr, s)) {
+
+            if (checkIterative(substr, s)) {
                 return true;
             } //if
-           //} //for
        } //for
 
        //if none have worked
@@ -17,8 +17,9 @@ class Solution {
 
     private boolean checkIterative(String substr, String s) {
         if (substr.equals(s)) return false;
+        if (s.length() % substr.length() != 0) return false;
 
-        for (int i = substr.length(); i < s.length(); s += substr.length()) {
+        for (int i = substr.length(); i < s.length(); i += substr.length()) {
             if (!s.substring(i, i + substr.length()).equals(substr)) return false;
         } //for     
         
