@@ -3,7 +3,7 @@ class Solution {
         StringBuilder sol = new StringBuilder();
         
         while (--num >= 0) {
-            sol.insert(0, (char)((num % 26) + ('A')));
+            sol.insert(0, (char)((num % 26) + 'A'));
             num /= 26;
         } //while
 
