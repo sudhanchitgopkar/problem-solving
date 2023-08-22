@@ -1,14 +1,12 @@
 class Solution {
     public String convertToTitle(int num) {
-        String sol = "";
+        StringBuilder sol = new StringBuilder();
         
         while (--num >= 0) {
-            char c = (char)((num % 26) + ('A'));
-            //if (c == '@') c = 'Z';
-            sol = c + sol;
+            sol.insert(0, (char)((num % 26) + ('A')));
             num /= 26;
         } //while
 
-        return sol;
+        return sol.toString();
     } //convert
 } //Sol
