@@ -12,8 +12,6 @@ class Solution {
         } //for
 
         for (int i = 0; i < 26; i++) {
-            if (freq[i] != 0)
-                System.out.println(((char)('a' + i)) + "\t" + freq[i]);
             numPairs += freq[i]/2;
             numOnes += freq[i] % 2;
         } //for
