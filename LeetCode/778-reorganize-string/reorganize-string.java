@@ -1,5 +1,11 @@
 class Solution {
     public String reorganizeString(String s) {
+       String sol = solve(s);
+       System.gc();
+       return sol;
+    } //reorgString
+
+    private String solve(String s) {
        int [] freq = new int [26];
        PriorityQueue <Pair> maxHeap = new PriorityQueue <> ();
        StringBuilder sol = new StringBuilder();
@@ -30,7 +36,7 @@ class Solution {
        } //if
 
        return sol.toString(); 
-    } //reorgString
+    } //solve
 } //Sol
 
 class Pair implements Comparable <Pair> {
