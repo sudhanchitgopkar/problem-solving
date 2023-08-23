@@ -26,9 +26,10 @@ class Solution {
        } //while
 
        if (withheld != null) {
-           //System.out.println(sol.toString());
            return "";
-       }
+       } //if
+
+       System.gc();
        return sol.toString(); 
     } //reorgString
 } //Sol
