@@ -29,7 +29,6 @@ class Solution {
            return "";
        } //if
 
-       System.gc();
        return sol.toString(); 
     } //reorgString
 } //Sol
