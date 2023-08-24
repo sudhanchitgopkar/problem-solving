@@ -30,12 +30,6 @@ class Solution {
         int numOverflowSpaces = numGaps == 0 ? 0 : maxWidth - (currLineLen - 1) - (numExtraSpaces * numGaps);
         StringBuilder sb = new StringBuilder();
 
-        System.out.println(words[l] + "\t" + words[r] + "\nnumGaps: " + numGaps
-                            + "\ncurrLineLen: " + currLineLen
-                            + "\nnumExtraSpaces: " + numExtraSpaces
-                            + "\nnumOverflowSpaces: " + numOverflowSpaces); 
-        
-
         while (l < r) {
             sb.append(words[l]);
             for (int i = 0; i <= numExtraSpaces && (l < r - 1 || numGaps == 0); i++) {
