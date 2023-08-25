@@ -13,12 +13,6 @@ public:
 
         if (dp[s1ptr][s2ptr] != -1) {
             return dp[s1ptr][s2ptr];
-        } else if (s1cap && s2cap && s3cap) {
-            return true;
-        } else if (s1cap && s2cap) {
-            return false;
-        } else if (s3cap) {
-            return false;
         } else if (s1cap) {
             return s2.substr(s2ptr, s2.size() - s2ptr) == s3.substr(s3ptr, s3.size() - s3ptr);
         } else if (s2cap) {
