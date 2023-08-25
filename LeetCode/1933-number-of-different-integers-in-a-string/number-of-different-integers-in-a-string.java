@@ -19,7 +19,7 @@ class Solution {
 
         if (sb.length() > 0) {
             while (sb.length() > 1 && sb.charAt(0) == '0') {
-                        sb.delete(0, 1);
+                sb.delete(0, 1);
             } //while
             seen.add(sb.toString());
         } //if
