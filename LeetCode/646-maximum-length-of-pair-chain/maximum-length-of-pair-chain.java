@@ -5,7 +5,6 @@ class Solution {
 
         for (int i = 1; i < pairs.length; i++) {
             if (pairs[i][0] > end) {
-                //System.out.println(pairs[i][0] + "," + pairs[i][1]);
                 ++sol;
                 end = pairs[i][1];
             } //if
