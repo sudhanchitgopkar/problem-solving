@@ -5,7 +5,7 @@ class Solution {
     } //canCross
 
     private boolean dfs(int pos, int k, int [] stones, boolean [][] seen) {
-        System.out.println(pos + "\t" + k);
+        //System.out.println(pos + "\t" + k);
         if (pos == stones.length - 1) {
             return true;
         } else if (k < 0 || seen[pos][k]) {
