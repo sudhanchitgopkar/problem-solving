@@ -16,7 +16,9 @@ public:
         } //for
         
         for (int i = 0; i <= n; i++) {
-            int penalty = i == 0 ? suf[i] : i == n ? pre[i - 1] : penalty = pre[i - 1] + suf[i];
+            int penalty = i == 0 ? suf[i] : 
+                i == n ? pre[i - 1] : 
+                penalty = pre[i - 1] + suf[i];
             if (penalty < minPenalty) {
                 minPenalty = penalty;
                 sol = i;
