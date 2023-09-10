@@ -4,14 +4,11 @@ class Solution {
         dp[1] = 1;
 
         for (int i = 2; i <= n; i++) {
-            long res = (long) ((dp[i - 1] * (sum(2 * (i - 1) + 1))) % (Math.pow(10, 9) + 7));
-            dp[i] = res;
+            int val = 2 * (i - 1) + 1;
+            long res =  dp[i - 1] * ((val * ++val)/2);
+            dp[i] = (long) (res % (Math.pow(10, 9) + 7));
         } //for
 
         return (int) (dp[n] % (Math.pow(10, 9) + 7));
     } //countOrders
-
-    public int sum(int val) {
-        return (val * ++val)/2;
-    } //sum
 } //Sol
