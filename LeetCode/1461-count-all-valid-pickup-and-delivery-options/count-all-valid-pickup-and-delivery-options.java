@@ -8,6 +8,6 @@ class Solution {
             prev = (long) (res % (Math.pow(10, 9) + 7));
         } //for
 
-        return (int) (prev % (Math.pow(10, 9) + 7));
+        return (int) (prev);
     } //countOrders
 } //Sol
