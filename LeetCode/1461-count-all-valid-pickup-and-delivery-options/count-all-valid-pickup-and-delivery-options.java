@@ -12,12 +12,6 @@ class Solution {
     } //countOrders
 
     public int sum(int val) {
-        int sum = 0;
-
-        for (int i = 1; i <= val; i++) {
-            sum += i;
-        } //for
-
-        return sum;
+        return (val * ++val)/2;
     } //sum
 } //Sol
