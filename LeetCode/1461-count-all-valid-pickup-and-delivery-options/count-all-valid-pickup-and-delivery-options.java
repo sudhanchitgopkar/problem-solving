@@ -4,8 +4,8 @@ class Solution {
         dp[1] = 1;
 
         for (int i = 2; i <= n; i++) {
-            long res = (dp[i - 1] * (sum(2 * (i - 1) + 1)));
-            dp[i] = (long) (res % (Math.pow(10, 9) + 7));
+            long res = (long) ((dp[i - 1] * (sum(2 * (i - 1) + 1))) % (Math.pow(10, 9) + 7));
+            dp[i] = res;
         } //for
 
         return (int) (dp[n] % (Math.pow(10, 9) + 7));
