@@ -10,12 +10,10 @@ class Solution {
             if (curr == max) {
                 return curr;
             } else if (arr[i++] > curr) {
-                streak = 1;
+                streak = 0;
                 curr = arr[i - 1];
-            } else {
-                if (++streak == k) return curr;
             } //if
-            if (streak == k) return curr;
+            if (++ streak == k) return curr;
         } //while
 
         return curr;
