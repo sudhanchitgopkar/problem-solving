@@ -39,7 +39,6 @@ class Solution {
         seen.add(curr);
         for (int next : adj.get(curr)) {
             if (!seen.contains(next)) {
-                System.out.print(curr + "->" + next +",");
                 seen.add(next);
                 List<Integer> res = dfs(next, seen, adj);
                 res.add(curr);
