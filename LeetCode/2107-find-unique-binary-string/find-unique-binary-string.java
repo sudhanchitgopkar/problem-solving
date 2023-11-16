@@ -8,9 +8,9 @@ class Solution {
         
         for (int i = 0; i < Math.pow(2, nums.length) - 1; i++) {
             if (!has.contains(i)) {
-                String sol = Integer.toBinaryString(i);
-                while (sol.length() != nums.length) sol = '0' + sol;
-                return sol;
+                StringBuilder sol = new StringBuilder(Integer.toBinaryString(i));
+                while (sol.length() != nums.length) sol.insert(0, '0');
+                return sol.toString();
             } //if
         } //for
 
