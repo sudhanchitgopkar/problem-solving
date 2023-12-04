@@ -12,6 +12,7 @@ class Solution {
             ++l;
         } //while
 
-        return sol == ' ' ? "": "" + sol + sol + sol;
+        StringBuilder sb = new StringBuilder();
+        return sol == ' ' ? sb.toString(): sb.append(sol).append(sol).append(sol).toString();
     } //largestGood
 } //Sol
