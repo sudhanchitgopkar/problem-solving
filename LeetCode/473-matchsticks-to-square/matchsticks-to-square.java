@@ -1,5 +1,5 @@
 class Solution {
-    public boolean makesquare(int[] sticks) {
+    public boolean makesquare(int[] sticks) {        
         int sum = 0;
         for (int stick : sticks) {
             sum += stick;
