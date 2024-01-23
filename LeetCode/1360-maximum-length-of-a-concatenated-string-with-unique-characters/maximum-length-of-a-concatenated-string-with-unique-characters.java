@@ -19,10 +19,9 @@ class Solution {
         } //for 
 
         if (valid) {
-            curr += arr.get(i);
-            int with = backtrack(curr, i + 1, arr);
-            curr = curr.substring(0, curr.length() - arr.get(i).length());
             int without = backtrack(curr, i + 1, arr);
+            curr += arr.get(i);
+            int with = backtrack(curr, i + 1, arr);            
             return Math.max(with, without);
         } else {
             return backtrack(curr, i + 1, arr);
