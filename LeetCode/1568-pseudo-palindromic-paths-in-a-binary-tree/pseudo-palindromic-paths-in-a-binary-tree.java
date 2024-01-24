@@ -1,26 +1,13 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
     public int pseudoPalindromicPaths (TreeNode root) {
         return backtrack(new int [10], root);
     } //pseudoPalindromicPaths
 
     private int backtrack(int [] path, TreeNode curr) {
+        //process this element
         path[curr.val]++;
-
+        
+        //if leaf node
         if (curr.left == null && curr.right == null) {
             if (isValid(path)) {
                 path[curr.val]--;
@@ -30,11 +17,16 @@ class Solution {
                 return 0;
             } //if
         } //if
-
-        int l = curr.left == null ? 0 : backtrack(path, curr.left);
-        int r = curr.right == null ? 0 : backtrack(path, curr.right);
+        
+        //try each child if possible
+        int l = curr.left == null ? 0 : 
+                backtrack(path, curr.left);
+        int r = curr.right == null ? 0 : 
+                backtrack(path, curr.right);
+        //un-process this element
         path[curr.val]--;
-
+        
+        //return total num of solns
         return l + r;
     } //backtrack
 
@@ -42,6 +34,7 @@ class Solution {
         int numOdd = 0;
         for (int val : path) {
             numOdd += val % 2 == 0 ? 0 : 1;
+            //palindromes can have at most 1 val w odd freq
             if (numOdd > 1) return false;
         } //for
         return true;
