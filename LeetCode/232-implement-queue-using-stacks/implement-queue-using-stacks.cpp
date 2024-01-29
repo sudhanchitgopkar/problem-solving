@@ -3,7 +3,7 @@ public:
     stack <int> a, b;
 
     MyQueue() {
-        
+        // B)
     } //myq
     
     void push(int x) {
