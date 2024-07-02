@@ -17,6 +17,8 @@ class Solution {
             } //for
         } //for
 
-        return inter.stream().mapToInt(Integer::intValue).toArray();
+        int [] sol = new int [inter.size()];
+        for (int i = 0; i < inter.size(); i++) sol[i] = inter.get(i);
+        return sol;
     } //intersect
 } //Sol
