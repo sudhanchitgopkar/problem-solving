@@ -30,12 +30,11 @@ class Solution {
     } //insert
 
     private int gcd(int a, int b) {
-        int gcd = 1;
-
-        for (int i = 1; i <= Math.min(a, b); i++) {
-            if (a % i == 0 && b % i == 0) gcd = i;
+        
+        for (int i = Math.min(a, b); i >= 0; i--) {
+            if (a % i == 0 && b % i == 0) return i;
         } //for
 
-        return gcd;
+        return 1;
     } //gcd
 } //Sol
