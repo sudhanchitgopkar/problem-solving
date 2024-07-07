@@ -9,9 +9,7 @@ class Solution {
         for (int i = 0; i < n; i++) {
             int maxVal = 0;
             for (int j = 0; j < m; j++) {
-                if (nums[j][i] > maxVal) {
-                    maxVal = nums[j][i];
-                } //if
+                maxVal = Math.max(maxVal, nums[j][i]);
             } //for
             sol += maxVal;
         } //for
