@@ -1,11 +1,21 @@
 class Solution {
     public int numWaterBottles(int numBottles, int numExchange) {
-        return solve(numBottles, 0, numExchange);
-    } //numWaterBottles
+        int sol = 0, rem = 0;
 
-    private int solve (int full, int empty, int exchange) {
-        if (full == 0 && empty < exchange) return 0;
-        if (full == 0) return solve(empty/exchange, empty % exchange, exchange);
-        return full + solve(0, full + empty, exchange);
-    } //solve
+        while (numBottles > 0) {
+            sol += numBottles;
+            int temp = (numBottles + rem) % numExchange;
+            numBottles = (numBottles + rem)/numExchange;
+            rem = temp;
+        } //while
+
+        return sol;
+    } //numWaterBottles
 } //Sol
+
+
+/*
+    sol: 00 15 18
+    num: 15 03 01
+    rem: 00 03 02
+*/
