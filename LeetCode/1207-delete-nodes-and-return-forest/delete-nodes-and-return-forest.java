@@ -25,8 +25,8 @@ class Solution {
                     delIndex = i;
                     break;
                 } //if
-                
             } //for
+            
             if (delIndex != -1) {
                 sol.remove(delIndex);
             } //if
