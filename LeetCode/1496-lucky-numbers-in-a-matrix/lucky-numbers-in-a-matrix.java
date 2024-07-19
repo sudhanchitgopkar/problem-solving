@@ -23,6 +23,7 @@ class Solution {
             colMaxs.add(max);
         } //for
 
+        //3. find intersecting min/max's
         for (int i = 0; i < m; i++) {
             if (colMaxs.contains(rowMins[i])) sol.add(rowMins[i]);
         } //for
@@ -30,11 +31,3 @@ class Solution {
         return sol;
     } //luckyNums
 } //Sol
-
-/*
-    03 07 08 - 03
-    09 11 13 - 09
-    15 16 17 - 15
-    |  |  |
-    15 16 17
-*/
