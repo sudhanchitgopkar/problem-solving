@@ -16,7 +16,6 @@
 class Solution {
     int sol = 0;
     public int countPairs(TreeNode root, int distance) {
-        if (root.left == null && root.right == null) return 0;
         DLNode DLRoot = initParents(root, new DLNode(null, null, root.val, null));
         dfs(DLRoot, distance);
         return sol/2;
@@ -24,8 +23,7 @@ class Solution {
 
     private void dfs(DLNode root, int maxDist) {
         if (root.left == null && root.right == null) {
-            //System.out.println("FINDING PAIRS FOR: " + root.val);
-            findPairs(root.parent, root, 1, maxDist);
+            if (root.parent != null) findPairs(root.parent, root, 1, maxDist);
         } //if
 
         if (root.left != null) dfs(root.left, maxDist);
@@ -35,7 +33,6 @@ class Solution {
     private void findPairs(DLNode curr, DLNode prev, int currDist, int maxDist) {
         if (currDist > maxDist) return;
         if (curr.left == null && curr.right == null) {
-            //System.out.println("FOUND PAIRS AT: " + curr.val);
             ++sol;
         }
 
@@ -60,13 +57,6 @@ class Solution {
 
         return curr;
     } //initParents
-
-    private void printTree (DLNode root) {
-        if (root.left != null) printTree(root.left);
-        if (root.right != null) printTree(root.right);
-        System.out.println(root.val);
-    } //printTree
-
 } //Sol
 
 class DLNode {
