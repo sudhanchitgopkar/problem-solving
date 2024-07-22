@@ -1,19 +1,18 @@
 class Solution {
     public String[] sortPeople(String[] names, int[] heights) {
-        int n = names.length, j = 0;
-        String [] heightMap = new String [100001];
+        int n = names.length, j = n - 1;
+        TreeMap <Integer, String> tm = new TreeMap <> ();
         String [] sol = new String [n];
 
         for (int i = 0; i < n; i++) {
-            heightMap[heights[i]] = names[i];
+            tm.put(heights[i], names[i]);
         } //for
 
-        for (int i = 100000; i >= 0; i--) {
-            if (heightMap[i] != null) {
-                sol[j++] = heightMap[i];
-            } //if
+        for (int key : tm.keySet()) {
+            sol[j--] = tm.get(key); 
         } //for
-        
+
+
         return sol;
     } //sortPeople
 } //Sol
