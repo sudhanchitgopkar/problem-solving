@@ -13,19 +13,10 @@ class Solution {
         } //for
 
         for (int i = 0; i < n; i++) {
-            System.out.print(i + ":");
-            for (int [] edge : adj.get(i)) {
-                System.out.print("[" + edge[0] + "," + edge[1] + "]");
-            } //for
-            System.out.println();
-        } //for
-
-        for (int i = 0; i < n; i++) {
             int [] seen = new int [n];
             for (int j = 0; j < n; j++) seen[j] = Integer.MIN_VALUE;
             seen[i] = Integer.MAX_VALUE;
             int neighbors = countNeighbors(i, distanceThreshold, seen);
-            System.out.println(i + "->" + neighbors);
             if (neighbors <= minNeighbors) {
                 minNeighbors = neighbors;
                 cityID = i;
