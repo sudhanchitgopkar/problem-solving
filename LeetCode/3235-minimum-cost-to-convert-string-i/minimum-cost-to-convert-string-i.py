@@ -16,16 +16,18 @@ class Solution:
             
             while pq:
                 cost, node = heapq.heappop(pq)
-                visited.add(node)
-                
+                if node in visited:
+                    continue
+                cache[(src, node)] = cost
+                visited.add(node)           
 
                 if node == dst:
-                    cache[(src, node)] = cost
                     return cost
-                
+
                 for nxt_cost, nxt_node in adj[node]:
                     if nxt_node not in visited:
                         heapq.heappush(pq, (cost + nxt_cost, nxt_node))
+                        
 
             return -1
         
