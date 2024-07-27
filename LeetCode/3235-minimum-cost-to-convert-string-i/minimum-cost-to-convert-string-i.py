@@ -27,7 +27,6 @@ class Solution:
                 for nxt_cost, nxt_node in adj[node]:
                     if nxt_node not in visited:
                         heapq.heappush(pq, (cost + nxt_cost, nxt_node))
-                        
 
             return -1
         
@@ -38,11 +37,4 @@ class Solution:
                 return -1
             sol += res
         
-        return sol
-
-
-
-
-        
-
-        
+        return sol        
