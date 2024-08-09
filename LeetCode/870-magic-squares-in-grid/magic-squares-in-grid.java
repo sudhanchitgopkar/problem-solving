@@ -40,7 +40,6 @@ class Solution {
                 sum += grid[startRow + row][startCol + col];
             } //for
             if (target != sum) {
-                System.out.println("Problem at row: " + row);
                 return false;
             } //if
         } //for
