@@ -32,7 +32,6 @@ class Solution {
         for (int i = 0; i < 3; i++) {
             target += grid[startRow + i][startCol];
         } //for
-        System.out.println("Target: " + target);
 
         //checks 1st, 2nd row
         for (int row = 1; row < 3; row++) {
