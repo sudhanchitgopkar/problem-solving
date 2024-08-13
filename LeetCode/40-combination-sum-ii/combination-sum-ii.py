@@ -12,13 +12,14 @@ class Solution:
             elif curr_sum > target:
                 return
 
-            backtrack(curr_i + 1, curr_sum, curr_list.copy())
             for i in range(vals[curr_i][1]):
                 curr_list.append(vals[curr_i][0])
-                backtrack(curr_i + 1, curr_sum + (vals[curr_i][0] * (i + 1)), curr_list.copy())
+                
             for _ in range(vals[curr_i][1]):
+                backtrack(curr_i + 1, sum(curr_list), curr_list.copy())
                 curr_list.pop()
-            
+            backtrack(curr_i + 1, curr_sum, curr_list.copy())
+
         backtrack(0, 0, [])
 
         return sol
